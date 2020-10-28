@@ -1,0 +1,106 @@
+commit 7c3e890ab86f5f91b35d0e1706b837a0136e2c52
+Author: Marike <marike.puranen@gmail.com>
+Date:   Wed Oct 28 17:16:17 2020 +0200
+
+    delete file 1 and rename file2
+
+ tiedostoja/file1  | 0
+ tiedostoja/file2  | 0
+ tiedostoja/file22 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 9d1f363c054b31ea845e857bad83f359fe947a17
+Author: Marike <marike.puranen@gmail.com>
+Date:   Wed Oct 28 17:14:31 2020 +0200
+
+    add files
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit f20b48efd4aacbd1559dccd0d9772439fd9d368a
+Author: Marike <marike.puranen@gmail.com>
+Date:   Wed Oct 28 17:08:59 2020 +0200
+
+    modify eka.txt and kolmas.txt
+
+ eka.txt    | 2 +-
+ kolmas.txt | 4 +++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+commit eb3a9d6cb687c48312663ff5ed0be760b464f498
+Author: Marike <marike.puranen@gmail.com>
+Date:   Wed Oct 28 17:06:45 2020 +0200
+
+    rename tiedosto.txt to eka.txt
+
+ eka.txt      | 6 ++++++
+ tiedosto.txt | 6 ------
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+commit 1cb54ab1ca5c30434fca646b4ad3cf57a26c0218
+Author: Marike <marike.puranen@gmail.com>
+Date:   Wed Oct 28 17:05:28 2020 +0200
+
+    delete toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit ad3dc424b083c27cc052f2789e568397857965bc
+Author: Marike <marike.puranen@gmail.com>
+Date:   Wed Oct 28 17:01:38 2020 +0200
+
+    edit text
+
+ tiedosto.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 8583df5a2042afad9ef68e77fb64ee95a1867690
+Author: Marike <marike.puranen@gmail.com>
+Date:   Wed Oct 28 16:58:43 2020 +0200
+
+    add wikipedia text
+
+ tiedosto.txt | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+commit 2080536557ecdae342187436d3d0f2f57108cc7b
+Author: Marike <marike.puranen@gmail.com>
+Date:   Wed Oct 28 16:52:38 2020 +0200
+
+    muokattu toinen.txt ja kolmas.txt
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit ef1127787cacf8cfe8ec57f4fda83692aa0bd98a
+Author: Marike <marike.puranen@gmail.com>
+Date:   Wed Oct 28 16:51:47 2020 +0200
+
+    lisätty kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 8b3560bab1a868b2889660f45a7b3335cb8751e1
+Author: Marike <marike.puranen@gmail.com>
+Date:   Wed Oct 28 16:49:51 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 380a711caa53ecdb5c8352bfd9b2c9ef9b1835c0
+Author: Marike <marike.puranen@gmail.com>
+Date:   Wed Oct 28 16:48:19 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
