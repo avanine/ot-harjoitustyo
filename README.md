@@ -4,8 +4,8 @@
 * [gitlog.txt](https://github.com/avanine/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
 * [komentorivi.txt](https://github.com/avanine/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 ## Viikko 2
-### Maksukortti
+#### Maksukortti
 * [MaksukorttiTest](https://github.com/avanine/ot-harjoitustyo/blob/main/laskarit/viikko2/Maksukortti/src/test/java/MaksukorttiTest.java)
-### Unicafe
+#### Unicafe
 * [MaksukorttiTest](https://github.com/avanine/ot-harjoitustyo/blob/main/laskarit/viikko2/Unicafe/src/test/java/com/mycompany/unicafe/MaksukorttiTest.java)
 * [KassapaateTest](https://github.com/avanine/ot-harjoitustyo/blob/main/laskarit/viikko2/Unicafe/src/test/java/com/mycompany/unicafe/KassapaateTest.java)
