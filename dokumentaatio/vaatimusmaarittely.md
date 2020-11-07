@@ -14,7 +14,8 @@ Aloitusnäkymässä on kolme eri vaihtoehtoa
  * pelaajien nimet kysytään pisteidenlaskua varten
 
 * pistetilastot
- * 5 eniten pelejä voittanutta pelaajaa
+
+- 5 eniten pelejä voittanutta pelaajaa
 
 * sulje sovellus
 
@@ -29,7 +30,7 @@ Aloitusnäkymässä on kolme eri vaihtoehtoa
 * pelaajien pisteet
 
 * lopeta peli -nappi
- * kumpikaan pelaajista ei voita
+- kumpikaan pelaajista ei voita
 
 ### Voittonäkymä
 
