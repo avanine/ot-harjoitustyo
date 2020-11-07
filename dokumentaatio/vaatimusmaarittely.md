@@ -11,11 +11,10 @@ Sovellus on kaksin pelattava peli Pong, jossa on tarkoitus saada kiekko osumaan 
 Aloitusnäkymässä on kolme eri vaihtoehtoa
 
 * uusi peli
- * pelaajien nimet kysytään pisteidenlaskua varten
+  * pelaajien nimet kysytään pisteidenlaskua varten
 
 * pistetilastot
-
-- 5 eniten pelejä voittanutta pelaajaa
+  * 5 eniten pelejä voittanutta pelaajaa
 
 * sulje sovellus
 
@@ -30,7 +29,7 @@ Aloitusnäkymässä on kolme eri vaihtoehtoa
 * pelaajien pisteet
 
 * lopeta peli -nappi
-- kumpikaan pelaajista ei voita
+  * kumpikaan pelaajista ei voita
 
 ### Voittonäkymä
 
