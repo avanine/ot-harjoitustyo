@@ -1,5 +1,7 @@
 # Ohjelmistotekniikka
 [Työaikakirjanpito](https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
+
+[Vaatimusmäärittely](https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 ## Harjoitustehtävät
 ## Viikko 1
 * [gitlog.txt](https://github.com/avanine/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
