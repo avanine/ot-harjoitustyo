@@ -1,15 +1,50 @@
-# Ohjelmistotekniikka
-[Työaikakirjanpito](https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
+# Pong
 
+Sovellus on kaksin pelattava oldschool -peli Pong, jossa tarkoituksena on saada pallo osumaan toisen pelaajan päätyyn, estäen samalla palloa osumasta omaan päätyyn mailaa käyttäen. Peli pitää myös kirjaa parhaista pelaajista, joita pääsee tarkastelemaan päävalikon "High Scores" -kohdasta.
+
+Peli on harjoitustyö Helsingin yliopiston tietojenkäsittelytieteen kurssille Ohjelmistotekniikka.
+
+## Dokumentaatio
+
+[Työaikakirjanpito](https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
 [Vaatimusmäärittely](https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
-## Harjoitustehtävät
-## Viikko 1
-* [gitlog.txt](https://github.com/avanine/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
-* [komentorivi.txt](https://github.com/avanine/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
-## Viikko 2
-[Testikattavuus](https://github.com/avanine/ot-harjoitustyo/blob/main/laskarit/viikko2/rsz_1screenshot_from_2020-11-07_16-33-20.png)
-#### Maksukortti
-* [MaksukorttiTest](https://github.com/avanine/ot-harjoitustyo/blob/main/laskarit/viikko2/Maksukortti/src/test/java/MaksukorttiTest.java)
-#### Unicafe
-* [MaksukorttiTest](https://github.com/avanine/ot-harjoitustyo/blob/main/laskarit/viikko2/Unicafe/src/test/java/com/mycompany/unicafe/MaksukorttiTest.java)
-* [KassapaateTest](https://github.com/avanine/ot-harjoitustyo/blob/main/laskarit/viikko2/Unicafe/src/test/java/com/mycompany/unicafe/KassapaateTest.java)
+
+## Komentorivitoiminnot
+
+### Testaus
+
+Testit suoritetaan komennolla
+
+```
+mvn test
+```
+
+ja testikattavuusraportin saat komennolla
+
+```
+mvn jacoco:report
+```
+
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
+
+
+### Suoritettavan jarin generointi
+
+Komento
+
+```
+mvn package
+```
+
+generoi hakemistoon _target_ suoritettavan jar-tiedoston
+
+
+### JavaDoc
+
+JavaDoc generoidaan komennolla
+
+```
+mvn javadoc:javadoc
+```
+
+JavaDocia voi tarkastella avaamalla selaimella tiedosto _target/site/apidocs/index.html_
