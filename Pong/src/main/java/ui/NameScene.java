@@ -1,15 +1,20 @@
 package ui;
 
+import domain.Player;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -22,6 +27,8 @@ public class NameScene extends AbstractScene {
     private final TextField player2Name;
     private final Button start;
     private BorderPane pane;
+    public String name1;
+    public String name2;
 
     public NameScene(WelcomeScene welcomeScene) {
         super(new Group(), 850, 600);
@@ -31,48 +38,68 @@ public class NameScene extends AbstractScene {
         player1.setFill(Color.WHITE);
         player1.setFont(Font.font("Impact", 40));
         player1Name = new TextField();
+        player1Name.setFont(Font.font("Impact", 30));
+        player1Name.setBackground(new Background(new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY)));
 
         player2 = new Text("Player Two:");
         player2.setFill(Color.WHITE);
         player2.setFont(Font.font("Impact", 40));
         player2Name = new TextField();
+        player2Name.setFont(Font.font("Impact", 30));
+        player2Name.setBackground(new Background(new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY)));
 
         start = new Button("Start Game!");
+        start.setBackground(new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY)));
+        start.setFont(Font.font("Impact", 30));
+        start.setTextFill(Color.BLACK);
+        start.setOnMouseEntered(e -> start.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY))));
+        start.setOnMouseExited(e -> start.setBackground(new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY))));
 
-        FlowPane flow = new FlowPane(player1, player1Name);
-        FlowPane flow2 = new FlowPane(player2, player2Name);
-        FlowPane.setMargin(player1, new Insets(30));
-        FlowPane.setMargin(player2, new Insets(30));
-        FlowPane.setMargin(player1Name, new Insets(30));
-        FlowPane.setMargin(player2Name, new Insets(30));
-        flow.setPadding(new Insets(30, 0, 0, 30));
-        flow2.setPadding(new Insets(30, 60, 0, 0));
+        Hyperlink back = new Hyperlink("Back To Menu");
+        back.setFont(Font.font("Impact", 30));
+        back.setTextFill(Color.WHITE);
 
+        VBox p1 = new VBox(player1, player1Name);
+        VBox p2 = new VBox(player2, player2Name);
+        VBox.setMargin(player1, new Insets(30));
+        VBox.setMargin(player2, new Insets(30));
+        p1.setPadding(new Insets(20));
+        p2.setPadding(new Insets(20));
+        
+        HBox names = new HBox(p1, p2);
+        names.setSpacing(30);
+        HBox.setMargin(p1, new Insets(50));
+        HBox.setMargin(p2, new Insets(50));
+        
         pane = new BorderPane();
-        pane.setLeft(flow);
-        pane.setRight(flow2);
-        pane.setBottom(start);
-
-        pane.setPrefSize(600, 450);
-
-        Insets insets = new Insets(40);
-        BorderPane.setMargin(flow, insets);
-        BorderPane.setMargin(flow2, insets);
-        BorderPane.setAlignment(start, Pos.BOTTOM_CENTER);
-        BorderPane.setMargin(start, new Insets(60));
-
+        pane.setPrefSize(850, 600);
+        pane.setTop(names);
+        pane.setCenter(start);
+        pane.setBottom(back);
+        BorderPane.setMargin(back, new Insets(30));
+        
         start.setOnAction((event) -> {
             try {
-                // !!! these don't work, figure out why !!!
-                //welcomeScene.getPrimaryStage().setScene(new GameScene(welcomeScene));
-                //welcomeScene.changeToGameScene();
-                Text text = new Text("Game coming soon...");
-                text.setFill(Color.PINK);
-                text.setFont(Font.font("Impact", 40));
-                pane.setBottom(text);
+                String firstName = "";
+                String secondName = "";
+                
+                if (player1Name != null) {
+                    firstName = player1Name.getText();
+                }
+                if (player2Name != null) {
+                    secondName = player2Name.getText();
+                }
+                Player one = new Player(firstName);
+                Player two = new Player(secondName);
+                welcomeScene.getPrimaryStage().setScene(new GameScene(welcomeScene, one, two));
+
             } catch (Exception ex) {
                 Logger.getLogger(WelcomeScene.class.getName()).log(Level.SEVERE, null, ex);
             }
+        });
+        
+        back.setOnAction(event -> {
+            welcomeScene.getPrimaryStage().setScene(welcomeScene.getScene());
         });
 
         Parent root = getRoot();
