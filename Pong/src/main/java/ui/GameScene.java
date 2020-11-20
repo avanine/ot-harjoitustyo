@@ -4,14 +4,10 @@ import domain.Ball;
 import domain.Box;
 import domain.Paddle;
 import domain.Player;
-import domain.Scores;
 import java.util.Random;
 import javafx.geometry.Bounds;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -37,7 +33,7 @@ public class GameScene extends AbstractScene {
     private final Player one;
     private final Player two;
 
-    public GameScene(WelcomeScene welcomeScene, Player one, Player two) {
+    public GameScene(PongUi application, Player one, Player two) {
         super(new Group(), 850, 600);
         
         this.one = one;

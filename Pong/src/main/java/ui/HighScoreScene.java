@@ -15,7 +15,7 @@ public class HighScoreScene extends AbstractScene {
     private final Text noScoresYet;
     private final Hyperlink back;
     
-    public HighScoreScene(WelcomeScene welcomeScene) {
+    public HighScoreScene(PongUi application) {
         super(new Group(), 850, 600);
         setFill(Color.BLACK);
         
@@ -33,7 +33,7 @@ public class HighScoreScene extends AbstractScene {
         BorderPane.setMargin(back, new Insets(30));
         
         back.setOnAction(event -> {
-            welcomeScene.getPrimaryStage().setScene(welcomeScene.getScene());
+            application.getPrimaryStage().setScene(new WelcomeScene(application));
         });
         
         Parent root = getRoot();

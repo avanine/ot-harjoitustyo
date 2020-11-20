@@ -1,9 +1,9 @@
 
-import ui.WelcomeScene;
+import ui.PongUi;
 
 public class Main {
 
     public static void main(String[] args) {
-        WelcomeScene.main(args);
+        PongUi.main(args);
     }
 }

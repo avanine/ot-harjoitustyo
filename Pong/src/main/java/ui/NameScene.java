@@ -30,7 +30,7 @@ public class NameScene extends AbstractScene {
     public String name1;
     public String name2;
 
-    public NameScene(WelcomeScene welcomeScene) {
+    public NameScene(PongUi application) {
         super(new Group(), 850, 600);
         setFill(Color.BLACK);
 
@@ -91,7 +91,7 @@ public class NameScene extends AbstractScene {
                 }
                 Player one = new Player(firstName);
                 Player two = new Player(secondName);
-                welcomeScene.getPrimaryStage().setScene(new GameScene(welcomeScene, one, two));
+                application.getPrimaryStage().setScene(new GameScene(application, one, two));
 
             } catch (Exception ex) {
                 Logger.getLogger(WelcomeScene.class.getName()).log(Level.SEVERE, null, ex);
@@ -99,7 +99,7 @@ public class NameScene extends AbstractScene {
         });
         
         back.setOnAction(event -> {
-            welcomeScene.getPrimaryStage().setScene(welcomeScene.getScene());
+            application.getPrimaryStage().setScene(new WelcomeScene(application));
         });
 
         Parent root = getRoot();

@@ -1,6 +1,7 @@
 package ui;
 
 import domain.Scores;
+import ui.PongUi;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.AnimationTimer;
@@ -11,6 +12,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.BorderPane;
@@ -23,21 +25,16 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class WelcomeScene extends Application {
+public class WelcomeScene extends AbstractScene {
 
     private final Hyperlink startGame;
     private final Hyperlink scores;
     private final Hyperlink exit;
-    private static final int WIDTH = 850;
-    private static final int HEIGHT = 600;
     private final BorderPane bp;
-    private AnimationTimer loop;
-    private Scores score;
-    public static Stage stage;
-    Scene scene;
 
-    public WelcomeScene() {
+    public WelcomeScene(PongUi application) {
 
+        super(new Group(), 850, 600);
         bp = new BorderPane();
 
         startGame = new Hyperlink("New Game");
@@ -66,40 +63,17 @@ public class WelcomeScene extends Application {
 
         BorderPane.setMargin(newTitle, new Insets(30));
 
-    }
-
-    @Override
-    public void start(Stage primaryStage) {
-
-        stage = primaryStage;
-
-        score = new Scores();
-
-        stage.setTitle("Pong");
-        Group root = new Group(bp);
+        Parent root = getRoot();
+        Group rootGroup = (Group) root;
         root.setTranslateX(210);
         root.setTranslateY(30);
-        scene = new Scene(root, WIDTH, HEIGHT);
-        scene.setFill(Color.BLACK);
-        stage.setScene(scene);
-
-        stage.show();
-
-        loop = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-                Scene scene = stage.getScene();
-                if (scene instanceof AbstractScene) {
-                    ((AbstractScene) scene).tick();
-                }
-            }
-        };
-
-        loop.start();
+        setFill(Color.BLACK);
+        
+        rootGroup.getChildren().add(bp);
 
         startGame.setOnAction(event -> {
             try {
-                stage.setScene(new NameScene(this));
+                application.getPrimaryStage().setScene(new NameScene(application));
             } catch (Exception ex) {
                 Logger.getLogger(WelcomeScene.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -107,7 +81,7 @@ public class WelcomeScene extends Application {
 
         scores.setOnAction(event -> {
             try {
-                stage.setScene(new HighScoreScene(this));
+                application.getPrimaryStage().setScene(new HighScoreScene(application));
             } catch (Exception ex) {
                 Logger.getLogger(WelcomeScene.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -120,12 +94,6 @@ public class WelcomeScene extends Application {
                 Logger.getLogger(WelcomeScene.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-    }
-
-    @Override
-    public void stop() throws Exception {
-        loop.stop();
-        super.stop();
     }
 
     private Node createTitle(String title) {
@@ -151,20 +119,8 @@ public class WelcomeScene extends Application {
         return letters;
     }
 
-    public Stage getPrimaryStage() {
-        return stage;
-    }
-
-    public Scene getScene() {
-        return scene;
-    }
-
-    public Scores getScore() {
-        return score;
-    }
-
-    public static void main(String[] args) {
-        launch(args);
+    @Override
+    public void tick() {
     }
 
 }
