@@ -23,25 +23,25 @@ public class Box extends Rectangle {
         setLayoutX(0);
         setLayoutY(0);
         setWidth(850);
-        setHeight(850 / 40);
+        setHeight(850/40);
     }
     
     public void createBottomBox() {
         setLayoutX(0);
-        setLayoutY(850 - (850 / 40));
+        setLayoutY(600-850/40);
         setWidth(850);
-        setHeight(850 / 40);
+        setHeight(850/40);
     }
     
     public void createLeftBox() {
         setLayoutX(-850);
         setLayoutY(0);
-        setWidth(850 - (850 / 40));
+        setWidth(850-850/40);
         setHeight(600);
     }
     
     public void createRightBox() {
-        setLayoutX(850 + (850 / 40));
+        setLayoutX(850+850/40);
         setLayoutY(0);
         setWidth(850);
         setHeight(600);

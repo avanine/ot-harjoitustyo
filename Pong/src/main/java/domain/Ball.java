@@ -5,8 +5,8 @@ import javafx.scene.shape.Rectangle;
 
 public class Ball extends Rectangle {
     
-    double initialSpeed = 3.0;
-    double speedIncrease = 0.5;
+    double initialSpeed = 2.0;
+    double speedIncrease = 0.3;
     double maxSpeed = 10.0;
     
     double movementSpeed;
@@ -52,5 +52,26 @@ public class Ball extends Rectangle {
     
     public void setYDirection(double direction) {
         yDirection = direction;
+    }
+    
+    public void randomiseDirection(int randomValue) {
+        switch (randomValue) {
+            case 0:
+                setXDirection(-1.0);
+                setYDirection(-1.0);
+                break;
+            case 1:
+                setXDirection(-1.0);
+                setYDirection(1.0);
+                break;
+            case 2:
+                setXDirection(1.0);
+                setYDirection(-1.0);
+                break;
+            case 3:
+                setXDirection(1.0);
+                setYDirection(1.0);
+                break;
+        }
     }
 }

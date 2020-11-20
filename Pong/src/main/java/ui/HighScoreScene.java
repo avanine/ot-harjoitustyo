@@ -17,7 +17,6 @@ public class HighScoreScene extends AbstractScene {
     
     public HighScoreScene(PongUi application) {
         super(new Group(), 850, 600);
-        setFill(Color.BLACK);
         
         noScoresYet = new Text("This game hasn't been played yet :(");
         noScoresYet.setFill(Color.PINK);

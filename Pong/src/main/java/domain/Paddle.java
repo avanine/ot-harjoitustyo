@@ -17,11 +17,15 @@ public class Paddle extends Rectangle {
         setLayoutY(850 / 2 - getHeight() / 2);
         
         this.yDirection = 0.0;
-        this.movementSpeed = 0.0;
+        this.movementSpeed = 7.5;
     }
     
     public double getYDirection() {
         return yDirection;
+    }
+    
+    public void setYDirection(double y) {
+        yDirection = y;
     }
     
     public double getMovementSpeed() {

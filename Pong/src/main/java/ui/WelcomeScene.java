@@ -1,19 +1,14 @@
 package ui;
 
-import domain.Scores;
-import ui.PongUi;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.animation.AnimationTimer;
 import javafx.animation.TranslateTransition;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
@@ -22,7 +17,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class WelcomeScene extends AbstractScene {
@@ -35,6 +29,7 @@ public class WelcomeScene extends AbstractScene {
     public WelcomeScene(PongUi application) {
 
         super(new Group(), 850, 600);
+
         bp = new BorderPane();
 
         startGame = new Hyperlink("New Game");
@@ -67,8 +62,7 @@ public class WelcomeScene extends AbstractScene {
         Group rootGroup = (Group) root;
         root.setTranslateX(210);
         root.setTranslateY(30);
-        setFill(Color.BLACK);
-        
+
         rootGroup.getChildren().add(bp);
 
         startGame.setOnAction(event -> {

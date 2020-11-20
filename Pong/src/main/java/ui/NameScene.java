@@ -26,13 +26,10 @@ public class NameScene extends AbstractScene {
     private final TextField player1Name;
     private final TextField player2Name;
     private final Button start;
-    private BorderPane pane;
-    public String name1;
-    public String name2;
+    private final BorderPane pane;
 
     public NameScene(PongUi application) {
         super(new Group(), 850, 600);
-        setFill(Color.BLACK);
 
         player1 = new Text("Player One:");
         player1.setFill(Color.WHITE);
@@ -78,7 +75,7 @@ public class NameScene extends AbstractScene {
         pane.setBottom(back);
         BorderPane.setMargin(back, new Insets(30));
         
-        start.setOnAction((event) -> {
+        start.setOnAction(event -> {
             try {
                 String firstName = "";
                 String secondName = "";
