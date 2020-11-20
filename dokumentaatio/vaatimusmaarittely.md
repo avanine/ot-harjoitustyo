@@ -6,7 +6,7 @@ Sovellus on kaksin pelattava peli Pong, jossa on tarkoitus saada kiekko osumaan 
 
 ## Toiminnallisuus
 
-### Aloitusnäkymä <span style="color: green;">tehty</span>
+### Aloitusnäkymä [TEHTY]
 
 Aloitusnäkymässä on kolme eri vaihtoehtoa
 
