@@ -11,8 +11,8 @@ public class Paddle extends Rectangle {
     
     public Paddle() {
         
-        setWidth(850/40);
-        setHeight((850/40)*5);
+        setWidth(850 / 40);
+        setHeight((850 / 40) * 5);
         setFill(Color.PINK);
         setLayoutY(850 / 2 - getHeight() / 2);
         
@@ -60,7 +60,7 @@ public class Paddle extends Rectangle {
     }
     
     public void disableMovement(KeyEvent x) {
-        switch(x.getCode()) {
+        switch (x.getCode()) {
             case UP: case W:
                 if (yDirection == -1.0) {
                     yDirection = 0.0;

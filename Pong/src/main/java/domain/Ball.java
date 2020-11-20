@@ -6,7 +6,7 @@ import javafx.scene.shape.Rectangle;
 public class Ball extends Rectangle {
     
     double initialSpeed = 2.0;
-    double speedIncrease = 0.3;
+    double speedIncrease = 0.2;
     double maxSpeed = 10.0;
     
     double movementSpeed;
@@ -15,10 +15,10 @@ public class Ball extends Rectangle {
     
     public Ball() {
         setFill(Color.PINK);
-        setLayoutX((850/2)-((850/40)/2));
-        setLayoutY((850/2)-((850/40)/2));
-        setWidth(850/40);
-        setHeight(850/40);
+        setLayoutX(425 - ((850 / 40) / 2));
+        setLayoutY(425 - ((850 / 40) / 2));
+        setWidth(850 / 40);
+        setHeight(850 / 40);
         
         this.movementSpeed = initialSpeed;
         this.xDirection = 1.0;

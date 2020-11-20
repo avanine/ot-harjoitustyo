@@ -76,9 +76,9 @@ public class GameScene extends AbstractScene {
         p2Score.setLayoutY(60);
 
         centerLine = new Group();
-        centerLine.setLayoutX(425 - (850/40)/2);
-        for (double y = (850/40); y < 600; y += (1.93 * (850/40))) {
-            Rectangle box = new Rectangle(0, y, (850/40), (850/40));
+        centerLine.setLayoutX(425 - (850 / 40) / 2);
+        for (double y = (850 / 40); y < 600; y += (1.93 * (850 / 40))) {
+            Rectangle box = new Rectangle(0, y, (850 / 40), (850 / 40));
             box.setFill(Color.WHITE);
             centerLine.getChildren().add(box);
         }
@@ -112,7 +112,6 @@ public class GameScene extends AbstractScene {
         
         setPlayerScore(1, 0);
         setPlayerScore(2, 0);
-
     }
 
     @Override
@@ -159,7 +158,7 @@ public class GameScene extends AbstractScene {
             ball.increaseMovementSpeed();
         // if ball hits p2 paddle
         } else if (ballBounds.intersects(p2PaddleBounds)) {
-            ball.setLayoutX(p2PaddleBounds.getMinX()-ball.getWidth()-0.1);
+            ball.setLayoutX(p2PaddleBounds.getMinX() - ball.getWidth() - 0.1);
             ball.setXDirection(-1.0);
             ball.increaseMovementSpeed();
         // if ball hits top wall
@@ -202,14 +201,14 @@ public class GameScene extends AbstractScene {
     }
     
     private void reset() {
-        ball.setLayoutX(850/2 - (850/40)/2);
-        ball.setLayoutY(850/2 - (850/40)/2);
+        ball.setLayoutX(425 - (850 / 40) / 2);
+        ball.setLayoutY(425 - (850 / 40) / 2);
         
         int randomValue = random.nextInt(3);
         ball.randomiseDirection(randomValue);
         ball.resetMovementSpeed();
         
-        p1Paddle.setLayoutY(425 - p1Paddle.getHeight()/2);
+        p1Paddle.setLayoutY(425 - p1Paddle.getHeight() / 2);
         p2Paddle.setLayoutY(p1Paddle.getLayoutY());
         
         countdown = 50;
@@ -226,76 +225,76 @@ public class GameScene extends AbstractScene {
     }
     
     private static Rectangle whiteRect(double x, double y, double w, double h) throws IllegalArgumentException {
-		Rectangle rectangle = new Rectangle(x, y, w, h);
-		rectangle.setFill(Color.WHITE);
-		return rectangle;
+	Rectangle rectangle = new Rectangle(x, y, w, h);
+	rectangle.setFill(Color.WHITE);
+	return rectangle;
 	}
     
     private static Group numberGroup(int number) {
         Group group = new Group();
         ObservableList<Node> children = group.getChildren();
-        switch(number) {
+        switch (number) {
             case 0:
-		children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(0, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
-		children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
-		children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
-		break;
+                children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(0, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
+                children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
+                children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
+                break;
             case 1:
-		children.add(whiteRect(NUMBER_WIDTH / 2 - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
-		break;
+                children.add(whiteRect(NUMBER_WIDTH / 2 - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
+                break;
             case 2:
-		children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
-		children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(0, NUMBER_HEIGHT / 2, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
-		children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
-		break;
+                children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
+                children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(0, NUMBER_HEIGHT / 2, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
+                children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
+                break;
             case 3:
-		children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
-		break;
+                children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
+                break;
             case 4:
-		children.add(whiteRect(0, 0, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
-		children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
-		break;
+                children.add(whiteRect(0, 0, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
+                children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
+                break;
             case 5:
-		children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(0, 0, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
-		children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, NUMBER_HEIGHT / 2, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
-		children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
-		break;
+                children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(0, 0, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
+                children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, NUMBER_HEIGHT / 2, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
+                children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
+                break;
             case 6:
-		children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(0, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
-		children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, NUMBER_HEIGHT / 2, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
-		children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
-		break;
+                children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(0, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
+                children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, NUMBER_HEIGHT / 2, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
+                children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
+                break;
             case 7:
-		children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
-		break;
+                children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
+                break;
             case 8:
-		children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(0, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
-		children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
-		children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
-		break;
+                children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(0, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
+                children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
+                children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
+                break;
             case 9:
-		children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(0, 0, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
-		children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
-		children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
-		children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
-		break;
+                children.add(whiteRect(0, 0, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(0, 0, NUMBER_THICKNESS, NUMBER_HEIGHT / 2));
+                children.add(whiteRect(0, NUMBER_HEIGHT / 2 - NUMBER_THICKNESS / 2, NUMBER_WIDTH, NUMBER_THICKNESS));
+                children.add(whiteRect(NUMBER_WIDTH - NUMBER_THICKNESS, 0, NUMBER_THICKNESS, NUMBER_HEIGHT));
+                children.add(whiteRect(0, NUMBER_HEIGHT - NUMBER_THICKNESS, NUMBER_WIDTH, NUMBER_THICKNESS));
+                break;
             default:
-		break;
+                break;
         }
         return group;
     }
