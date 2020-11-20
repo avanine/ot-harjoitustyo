@@ -10,30 +10,30 @@ Sovellus on kaksin pelattava peli Pong, jossa on tarkoitus saada kiekko osumaan 
 
 Aloitusnäkymässä on kolme eri vaihtoehtoa
 
-* uusi peli
+* uusi peli [TEHTY]
   * pelaajien nimet kysytään pisteidenlaskua varten
 
-* pistetilastot
+* pistetilastot [TEHTY]
   * 5 eniten pelejä voittanutta pelaajaa
 
-* sulje sovellus
+* sulje sovellus [TEHTY]
 
-### Pelinäkymä
+### Pelinäkymä [TEHTY]
 
-* tausta
+* tausta [TEHTY]
 
-* pelikenttä
+* pelikenttä [TEHTY]
 
 * pelaajien nimet
 
-* pelaajien pisteet
+* pelaajien pisteet [TEHTY]
 
 * lopeta peli -nappi
   * kumpikaan pelaajista ei voita
 
-### Voittonäkymä
+### Voittonäkymä [TEHTY]
 
-* peli kertoo kumpi voitti
+* peli kertoo kumpi voitti [TEHTY]
 
 * pelaaja valitsee haluaako aloittaa uuden pelin vai palata aloitusnäkymään
 
