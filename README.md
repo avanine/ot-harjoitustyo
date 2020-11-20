@@ -10,6 +10,8 @@ Peli on harjoitustyö Helsingin yliopiston tietojenkäsittelytieteen kurssille O
 
 [Vaatimusmäärittely](https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
+[Arkkitehtuurikuvaus](https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
+
 ## Komentorivitoiminnot
 
 ### Testaus
