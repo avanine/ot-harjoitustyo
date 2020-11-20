@@ -45,35 +45,7 @@ public class GameScene extends AbstractScene {
         Text playerTwoName = two.getTextName();
         Text playerOneScore = one.getTextScore();
         Text playerTwoScore = two.getTextScore();
-        /*
-        Box nameBoxOne = new Box();
-        nameBoxOne.createNameBox();
-        Box nameBoxTwo = new Box();
-        nameBoxTwo.createNameBox();
-        
-        Box scoreBoxOne = new Box();
-        scoreBoxOne.createScoreBox();
-        Box scoreBoxTwo = new Box();
-        scoreBoxTwo.createScoreBox();
-        
-        StackPane name1 = new StackPane();
-        name1.getChildren().addAll(nameBoxOne, playerOneName);
-        name1.setAlignment(Pos.CENTER);
-        name1.setLayoutX(10);
-        name1.setLayoutY(10);
-        StackPane name2 = new StackPane();
-        name2.getChildren().addAll(nameBoxTwo, playerTwoName);
-        name2.setLayoutX(600);
-        name2.setLayoutY(10);
-        StackPane score1 = new StackPane();
-        score1.getChildren().addAll(scoreBoxOne, playerOneScore);
-        score1.setLayoutX(10);
-        score1.setLayoutY(30);
-        StackPane score2 = new StackPane();
-        score2.getChildren().addAll(scoreBoxTwo, playerTwoScore);
-        score2.setLayoutX(600);
-        score2.setLayoutY(30);
-        */
+
         top = new Box();
         top.createTopBox();
 

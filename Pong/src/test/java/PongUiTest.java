@@ -1,4 +1,3 @@
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -8,13 +7,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import ui.WelcomeScene;
+import ui.PongUi;
 
-public class WelcomeSceneTest {
+public class PongUiTest {
     
     private volatile boolean success = false;
     
-    public WelcomeSceneTest() {
+    public PongUiTest() {
     }
     
     @BeforeAll
@@ -40,7 +39,7 @@ public class WelcomeSceneTest {
             @Override
             public void run() {
                 try {
-                    Application.launch(WelcomeScene.class);
+                    Application.launch(PongUi.class);
                     success = true;
                 } catch(Throwable t) {
                     if(t.getCause() != null && t.getCause().getClass().equals(InterruptedException.class)) {
@@ -48,7 +47,7 @@ public class WelcomeSceneTest {
                         success = true;
                         return;
                     }
-                    Logger.getLogger(WelcomeSceneTest.class.getName()).log(Level.SEVERE, null, t);
+                    Logger.getLogger(PongUiTest.class.getName()).log(Level.SEVERE, null, t);
                 }
             }
         };
