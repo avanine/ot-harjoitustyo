@@ -51,3 +51,13 @@ mvn javadoc:javadoc
 ```
 
 JavaDocia voi tarkastella avaamalla selaimella tiedosto _target/site/apidocs/index.html_
+
+### Checkstyle
+
+Tiedostoon [checkstyle.xml](https://github.com/avanine/ot-harjoitustyo/blob/main/Pong/checkstyle.xml) määrittelemät tarkistukset suoritetaan komennolla
+
+```
+ mvn jxr:jxr checkstyle:checkstyle
+```
+
+Mahdolliset virheilmoitukset selviävät avaamalla selaimella tiedosto _target/site/checkstyle.html_
