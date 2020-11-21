@@ -5,7 +5,7 @@
 
 Ohjelman rakenne koostuu kolmesta pakkauksesta:
 
-<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Pakkausrakenne.png" width="220">
+<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Pakkausrakenne.png" width="240">
 
 Pakkaus _Pong.ui_ sisältää JavaFX:llä toteutetun käyttöliittymän sekä eri näkymistä vastaavat Scene-luokat. Pakkauksesta _Pong.domain_ löytyy sovelluslogiikka, ja pakkauksesta _Pong.dao_ pisteiden tallentamiseen ja hakemiseen käytetty koodi.
 
@@ -26,7 +26,7 @@ Näkymät on eriytetty domain-pakkauksen sovelluslogiikasta vastaavista luokista
 
 Sovelluksen loogisen datamallin muodostavat luokat [Player](https://github.com/avanine/ot-harjoitustyo/blob/main/Pong/src/main/java/domain/Player.java), [Ball](https://github.com/avanine/ot-harjoitustyo/blob/main/Pong/src/main/java/domain/Ball.java) sekä [Paddle](https://github.com/avanine/ot-harjoitustyo/blob/main/Pong/src/main/java/domain/Paddle.java). Kuten arvata saattaa, Player kuvaa pelaajaa, Ball palloa, ja Paddle pelaajien käyttämiä mailoja:
 
-<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Domain.png" width="340">
+<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Domain.png" width="360">
 
 Luokka Player sisältää tarvittavat metodit pelaajien luomiseen sekä tietojen hakemiseen, mm.:
 - void setName()
@@ -40,7 +40,7 @@ Ball ja Paddle vastaavat enimmäkseen suorakulmion luomisesta ja sijoittamisesta
 
 _Player_ pääsee käsiksi luokkaan _PlayerScoreDao_, josta se voi tarvittaessa hakea pelaajan aiempien voittojen määrän high score -taulukon päivitystä varten.
 
-<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Pakkausrakenne(2).png" width="240">
+<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Pakkausrakenne(2).png" width="260">
 
 ## Tietojen pysyväistallennus
 
