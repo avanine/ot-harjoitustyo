@@ -47,10 +47,10 @@ _Player_ pääsee käsiksi luokkaan _PlayerScoreDao_, josta se voi tarvittaessa 
 Pakkauksen _Pong.dao_ luokka _PlayerScoreDao_ tallettaa pelaajien nimet yhdistettynä voittojen määrään tekstitiedostoon _scores.txt_. Sovellus tallettaa tiedot seuraavassa muodossa
 
 <pre>
-ParryHotter 5
-play3r 7
+Parry Hotter;5
+play3r;7
 </pre>
 
-Eli pelaajan nimi ja voittojen määrä välilyönnillä erotettuna.
+Eli pelaajan nimi ja voittojen määrä puolipisteellä erotettuna.
 
 Tulevaisuudessa myös luokilla Paddle ja Ball saattaa olla pääsy pakkaukseen _Pong.dao_, jos sovellusta laajentaa muistamaan myös yksittäisen pelin tilastoja. Esimerkki tällaisesta voisi olla pelaaja, jolla on suurin määrä peräkkäisiä osumia palloon.
