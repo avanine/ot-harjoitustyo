@@ -35,7 +35,7 @@ Aloitusnäkymässä on kolme eri vaihtoehtoa
 
 * peli kertoo kumpi voitti [TEHTY]
 
-* pelaaja valitsee haluaako aloittaa uuden pelin vai palata aloitusnäkymään
+* pelaaja valitsee haluaako aloittaa uuden pelin vai palata aloitusnäkymään [TEHTY]
 
 ## Jatkokehitys
 
