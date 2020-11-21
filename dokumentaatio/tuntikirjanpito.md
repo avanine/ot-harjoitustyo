@@ -7,4 +7,5 @@
 |  16.11. |  10   | ahkera googlailu, WelcomeScene, NameScene sekä WelcomeSceneTest                  |
 |  17.11. |   2   | pallon, mailojen ja keskiviivan sijoittaminen pelikentälle + yleinen hienosäätö  |
 |  20.11. |   4   | koodin korjailua, mailojen liikkeet, pisteiden lisääminen pelikentälle, EndScene |
-| **yht.**|**22h**|                                                                                  |
+|  21.11. |   1   | mahdollisuus uusintaotteluun, checkstyle, PlayerScoreDao                         |
+| **yht.**|**23h**|                                                                                  |
