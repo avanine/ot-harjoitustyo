@@ -14,7 +14,7 @@ public class Paddle extends Rectangle {
         setWidth(850 / 40);
         setHeight((850 / 40) * 5);
         setFill(Color.PINK);
-        setLayoutY(850 / 2 - getHeight() / 2);
+        setLayoutY(300 - getHeight() / 2);
         
         this.yDirection = 0.0;
         this.movementSpeed = 7.5;

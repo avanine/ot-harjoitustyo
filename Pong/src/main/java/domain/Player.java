@@ -1,9 +1,5 @@
 package domain;
 
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-
 public class Player {
 
     String name;
@@ -13,32 +9,22 @@ public class Player {
         this.name = name;
         this.points = 0;
         setName();
-        
+
     }
-    
-    public void setName() {       
+
+    public void setName() {
+        
+        if (this.name.contains(";")) {
+            this.name = this.name.replaceAll(";", "");
+        }
         if (this.name.isEmpty()) {
             this.name = "He Who Must Not Be Named";
         }
         if (this.name.length() > 24) {
-            this.name = this.name.substring(0, 23);
-        }
+            this.name = this.name.substring(0, 24);
+        }        
     }
-    
-    public Text getTextName() {
-        Text nameText = new Text();
-        nameText.setFill(Color.WHITE);
-        nameText.setFont(Font.font("Impact", 40));
-        return nameText;
-    }
-    
-    public Text getTextScore() {
-        Text scoreText = new Text();
-        scoreText.setFill(Color.WHITE);
-        scoreText.setFont(Font.font("Impact", 40));
-        return scoreText;
-    }
-    
+
     public String getName() {
         return this.name;
     }

@@ -1,7 +1,6 @@
 package ui;
 
 import domain.Ball;
-import domain.Box;
 import domain.Paddle;
 import domain.Player;
 import java.util.Random;
@@ -18,10 +17,10 @@ public class GameScene extends AbstractScene {
     
     private final PongUi application;
 
-    private final Box top;
-    private final Box bottom;
-    private final Box left;
-    private final Box right;
+    private final Rectangle top;
+    private final Rectangle bottom;
+    private final Rectangle left;
+    private final Rectangle right;
     private final Paddle p1Paddle;
     private final Paddle p2Paddle;
     
@@ -49,17 +48,29 @@ public class GameScene extends AbstractScene {
         this.one = one;
         this.two = two;
 
-        top = new Box();
-        top.createTopBox();
+        top = new Rectangle();
+        top.setLayoutX(0);
+        top.setLayoutY(0);
+        top.setWidth(850);
+        top.setHeight(850 / 40);
 
-        bottom = new Box();
-        bottom.createBottomBox();
+        bottom = new Rectangle();
+        bottom.setLayoutX(0);
+        bottom.setLayoutY(600 - 850 / 40);
+        bottom.setWidth(850);
+        bottom.setHeight(850 / 40);
 
-        left = new Box();
-        left.createLeftBox();
+        left = new Rectangle();
+        left.setLayoutX(-850);
+        left.setLayoutY(0);
+        left.setWidth(850 - 850 / 40);
+        left.setHeight(600);
 
-        right = new Box();
-        right.createRightBox();
+        right = new Rectangle();
+        right.setLayoutX(850 + 850 / 40);
+        right.setLayoutY(0);
+        right.setWidth(850);
+        right.setHeight(600);
 
         p1Paddle = new Paddle();
         p1Paddle.setLayoutX(850 / 20);
@@ -68,11 +79,11 @@ public class GameScene extends AbstractScene {
         p2Paddle.setLayoutX(850 - (850 / 20) - (850 / 40));
 
         p1Score = new Group();
-        p1Score.setLayoutX(425 - 155);
+        p1Score.setLayoutX(425 - 165);
         p1Score.setLayoutY(60);
 
         p2Score = new Group();
-        p2Score.setLayoutX(425 + 70);
+        p2Score.setLayoutX(425 + 80);
         p2Score.setLayoutY(60);
 
         centerLine = new Group();
@@ -202,13 +213,13 @@ public class GameScene extends AbstractScene {
     
     private void reset() {
         ball.setLayoutX(425 - (850 / 40) / 2);
-        ball.setLayoutY(425 - (850 / 40) / 2);
+        ball.setLayoutY(300 - (850 / 40) / 2);
         
         int randomValue = random.nextInt(3);
         ball.randomiseDirection(randomValue);
         ball.resetMovementSpeed();
         
-        p1Paddle.setLayoutY(425 - p1Paddle.getHeight() / 2);
+        p1Paddle.setLayoutY(300 - p1Paddle.getHeight() / 2);
         p2Paddle.setLayoutY(p1Paddle.getLayoutY());
         
         countdown = 50;
@@ -225,9 +236,9 @@ public class GameScene extends AbstractScene {
     }
     
     private static Rectangle whiteRect(double x, double y, double w, double h) throws IllegalArgumentException {
-	Rectangle rectangle = new Rectangle(x, y, w, h);
-	rectangle.setFill(Color.WHITE);
-	return rectangle;
+        Rectangle rectangle = new Rectangle(x, y, w, h);
+        rectangle.setFill(Color.WHITE);
+        return rectangle;
 	}
     
     private static Group numberGroup(int number) {

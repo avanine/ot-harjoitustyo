@@ -88,6 +88,10 @@ public class NameScene extends AbstractScene {
                 }
                 Player one = new Player(firstName);
                 Player two = new Player(secondName);
+                
+                if (one.getName().equals("He Who Must Not Be Named")) {
+                    two = new Player("The Nameless");
+                }
                 application.getPrimaryStage().setScene(new GameScene(application, one, two));
 
             } catch (Exception ex) {
