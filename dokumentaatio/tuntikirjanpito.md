@@ -8,4 +8,5 @@
 |  17.11. |   2   | pallon, mailojen ja keskiviivan sijoittaminen pelikentälle + yleinen hienosäätö  |
 |  20.11. |   4   | koodin korjailua, mailojen liikkeet, pisteiden lisääminen pelikentälle, EndScene |
 |  21.11. |   1   | mahdollisuus uusintaotteluun, checkstyle, PlayerScoreDao                         |
-| **yht.**|**23h**|                                                                                  |
+|  23.11. |   1   | testien lisääminen, koodin korjailu                                              |
+| **yht.**|**24h**|                                                                                  |
