@@ -54,3 +54,13 @@ play3r;7
 Eli pelaajan nimi ja voittojen määrä puolipisteellä erotettuna.
 
 Tulevaisuudessa myös luokilla Paddle ja Ball saattaa olla pääsy pakkaukseen _Pong.dao_, jos sovellusta laajentaa muistamaan myös yksittäisen pelin tilastoja. Esimerkki tällaisesta voisi olla pelaaja, jolla on suurin määrä peräkkäisiä osumia palloon.
+
+## Päätoiminnallisuudet
+
+Kuvataan sovelluksen päätoiminnallisuuksia sekvenssikaavioina.
+
+### voittotilaston päivitys
+
+Kun toinen pelaajista saa 10 pistettä ja peli päättyy, vaihtuu näkymä _EndSceneen_, joka hoitaa tilaston päivityksen. Seuraava sekvenssikaavio kuvaa tilannetta, jossa voitoista kirjaa pitävä tekstitiedosto _scores.txt_ on vielä tyhjä.
+
+<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/sd_score.png" width="400">
