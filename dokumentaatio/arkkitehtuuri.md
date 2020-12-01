@@ -57,10 +57,14 @@ Tulevaisuudessa myös luokilla Paddle ja Ball saattaa olla pääsy pakkaukseen _
 
 ## Päätoiminnallisuudet
 
-Kuvataan sovelluksen päätoiminnallisuuksia sekvenssikaavioina.
+Kuvataan sovelluksen päätoiminnallisuuksia sekvenssikaaviona.
 
 ### voittotilaston päivitys
 
 Kun toinen pelaajista saa 10 pistettä ja peli päättyy, vaihtuu näkymä _EndSceneen_, joka hoitaa tilaston päivityksen. Seuraava sekvenssikaavio kuvaa tilannetta, jossa voitoista kirjaa pitävä tekstitiedosto _scores.txt_ on vielä tyhjä.
 
 <img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/sd_score.png" width="500">
+
+Ensin haetaan pelaajien pisteet, jotta selvitetään kumpi voitti. Player-luokan metodi getPoints() palauttaa 10 voittaneen pelaajan kohdalla. Tämän jälkeen luodaan uusi PlayerScoreDao-olio voittojen määrän päivitystä varten. Kutsutaan sen metodia addPoint(), joka vuorostaan tarkistaa, onko tekstitiedosto _scores.txt_ tyhjä. Tässä tapauksessa se on, eli metodi length() palauttaa 0. Lopuksi kirjoitetaan tekstitiedostoon uusi rivi joka sisältää voittajan nimen sekä voittojen määrän (1)* puolipisteellä erotettuna.
+
+_*Koska tekstitiedosto on tyhjä, tarkoittaa se ettei yhdelläkään pelaajalla ole vielä voittoja. Tämän takia voittojen määrä on automaattisesti 1._
