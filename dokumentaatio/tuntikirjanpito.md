@@ -9,4 +9,6 @@
 |  20.11. |   4   | koodin korjailua, mailojen liikkeet, pisteiden lisääminen pelikentälle, EndScene |
 |  21.11. |   1   | mahdollisuus uusintaotteluun, checkstyle, PlayerScoreDao                         |
 |  23.11. |   1   | testien lisääminen, koodin korjailu                                              |
-| **yht.**|**24h**|                                                                                  |
+|  23.11. |   2   | pysyväistallennuksen eri tapojen opiskelu                                        |
+|  23.11. |   3   | PlayerScoreDao-luokan metodien koodaus muutamaan kertaan                         |
+| **yht.**|**29h**|                                                                                  |
