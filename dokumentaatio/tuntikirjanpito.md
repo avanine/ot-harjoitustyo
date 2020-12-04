@@ -11,4 +11,5 @@
 |  23.11. |   1   | testien lisääminen, koodin korjailu                                              |
 |  23.11. |   2   | pysyväistallennuksen eri tapojen opiskelu                                        |
 |  23.11. |   3   | PlayerScoreDao-luokan metodien koodaus muutamaan kertaan                         |
-| **yht.**|**29h**|                                                                                  |
+|  23.11. |   1   | Koodin luettavuuden ja muokattavuuden parantaminen                               |
+| **yht.**|**30h**|                                                                                  |
