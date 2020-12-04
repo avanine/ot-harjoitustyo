@@ -82,7 +82,7 @@ public class Ball extends Rectangle {
     }
     /**
      * method for randomising ball's direction
-     * used when ball hits paddles/walls, and after ball returns to the center
+     * when ball hits paddles/walls, and after ball returns to the center
      * 
      * @param randomValue random value
      */

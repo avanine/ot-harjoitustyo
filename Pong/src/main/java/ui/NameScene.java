@@ -19,6 +19,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import static ui.PongUi.BIG_FONT;
 import static ui.PongUi.HEIGHT;
+import static ui.PongUi.INSETS_20;
+import static ui.PongUi.INSETS_30;
+import static ui.PongUi.INSETS_50;
 import static ui.PongUi.SMALL_FONT;
 import static ui.PongUi.WIDTH;
 /**
@@ -27,51 +30,46 @@ import static ui.PongUi.WIDTH;
  */
 public class NameScene extends AbstractScene {
 
-    private final Text PLAYER_ONE = new Text("Player One:");
-    private final Text PLAYER_TWO = new Text("Player Two:");
+    private final Text playerOne = new Text("Player One:");
+    private final Text playerTwo = new Text("Player Two:");
     
-    private final TextField PLAYER_ONE_TEXTFIELD = new TextField();
-    private final TextField PLAYER_TWO_TEXTFIELD = new TextField();
-    private final Background TEXTFIELD_BACKGROUND = new Background(new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY));
+    private final TextField playerOneTextfield = new TextField();
+    private final TextField playerTwoTextfield = new TextField();
+    private final Background textfieldBackground = new Background(new BackgroundFill(Color.PINK, CornerRadii.EMPTY, Insets.EMPTY));
     
-    private final Button START = new Button("Start Game!");
-    private final Hyperlink BACK = new Hyperlink("Back To Menu");
-    private final BorderPane PANE = new BorderPane();
+    private final Button start = new Button("Start Game!");
+    private final Hyperlink back = new Hyperlink("Back To Menu");
+    private final BorderPane pane = new BorderPane();
     
-    private final Background START_BACKGROUND = new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY));
-    private final Background START_BACKGROUND_HOVER = new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY));
-    
-    private final Insets INSETS_20 = new Insets(20);
-    private final Insets INSETS_30 = new Insets(30);
-    private final Insets INSETS_50 = new Insets(50);
-    
+    private final Background startBackground = new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY));
+    private final Background startBackgroundHover = new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY));
     
     public NameScene(PongUi application) {
         super(new Group(), WIDTH, HEIGHT);
 
-        PLAYER_ONE.setFill(Color.WHITE);
-        PLAYER_ONE.setFont(BIG_FONT);        
-        PLAYER_ONE_TEXTFIELD.setFont(SMALL_FONT);
-        PLAYER_ONE_TEXTFIELD.setBackground(TEXTFIELD_BACKGROUND);
+        playerOne.setFill(Color.WHITE);
+        playerOne.setFont(BIG_FONT);        
+        playerOneTextfield.setFont(SMALL_FONT);
+        playerOneTextfield.setBackground(textfieldBackground);
 
-        PLAYER_TWO.setFill(Color.WHITE);
-        PLAYER_TWO.setFont(BIG_FONT);
-        PLAYER_TWO_TEXTFIELD.setFont(SMALL_FONT);
-        PLAYER_TWO_TEXTFIELD.setBackground(TEXTFIELD_BACKGROUND);
+        playerTwo.setFill(Color.WHITE);
+        playerTwo.setFont(BIG_FONT);
+        playerTwoTextfield.setFont(SMALL_FONT);
+        playerTwoTextfield.setBackground(textfieldBackground);
 
-        START.setBackground(START_BACKGROUND);
-        START.setFont(SMALL_FONT);
-        START.setTextFill(Color.BLACK);
-        START.setOnMouseEntered(e -> START.setBackground(START_BACKGROUND_HOVER));
-        START.setOnMouseExited(e -> START.setBackground(START_BACKGROUND));
+        start.setBackground(startBackground);
+        start.setFont(SMALL_FONT);
+        start.setTextFill(Color.BLACK);
+        start.setOnMouseEntered(e -> start.setBackground(startBackgroundHover));
+        start.setOnMouseExited(e -> start.setBackground(startBackground));
 
-        BACK.setFont(SMALL_FONT);
-        BACK.setTextFill(Color.WHITE);
+        back.setFont(SMALL_FONT);
+        back.setTextFill(Color.WHITE);
 
-        VBox p1 = new VBox(PLAYER_ONE, PLAYER_ONE_TEXTFIELD);
-        VBox p2 = new VBox(PLAYER_TWO, PLAYER_TWO_TEXTFIELD);
-        VBox.setMargin(PLAYER_ONE, INSETS_30);
-        VBox.setMargin(PLAYER_TWO, INSETS_30);
+        VBox p1 = new VBox(playerOne, playerOneTextfield);
+        VBox p2 = new VBox(playerTwo, playerTwoTextfield);
+        VBox.setMargin(playerOne, INSETS_30);
+        VBox.setMargin(playerTwo, INSETS_30);
         p1.setPadding(INSETS_20);
         p2.setPadding(INSETS_20);
         
@@ -80,22 +78,22 @@ public class NameScene extends AbstractScene {
         HBox.setMargin(p1, INSETS_50);
         HBox.setMargin(p2, INSETS_50);
         
-        PANE.setPrefSize(WIDTH, HEIGHT);
-        PANE.setTop(names);
-        PANE.setCenter(START);
-        PANE.setBottom(BACK);
-        BorderPane.setMargin(BACK, INSETS_30);
+        pane.setPrefSize(WIDTH, HEIGHT);
+        pane.setTop(names);
+        pane.setCenter(start);
+        pane.setBottom(back);
+        BorderPane.setMargin(back, INSETS_30);
         
-        START.setOnAction(event -> {
+        start.setOnAction(event -> {
             try {
                 String firstName = "";
                 String secondName = "";
                 
-                if (PLAYER_ONE_TEXTFIELD != null) {
-                    firstName = PLAYER_ONE_TEXTFIELD.getText();
+                if (playerOneTextfield != null) {
+                    firstName = playerOneTextfield.getText();
                 }
-                if (PLAYER_TWO_TEXTFIELD != null) {
-                    secondName = PLAYER_TWO_TEXTFIELD.getText();
+                if (playerTwoTextfield != null) {
+                    secondName = playerTwoTextfield.getText();
                 }
                 Player one = new Player(firstName);
                 Player two = new Player(secondName);
@@ -110,14 +108,14 @@ public class NameScene extends AbstractScene {
             }
         });
         
-        BACK.setOnAction(event -> {
+        back.setOnAction(event -> {
             application.getPrimaryStage().setScene(new WelcomeScene(application));
         });
 
         Parent root = getRoot();
         Group rootGroup = (Group) root;
 
-        rootGroup.getChildren().add(PANE);
+        rootGroup.getChildren().add(pane);
     }
 
     @Override

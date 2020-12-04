@@ -3,6 +3,7 @@ package ui;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.animation.AnimationTimer;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
 /**
@@ -18,6 +19,10 @@ public class PongUi extends Application {
     
     /** width of smaller "helper" boxes that are used for setting layout */
     public static final double LAYOUT = 850 / 40;
+    
+    public static final Insets INSETS_20 = new Insets(20);
+    public static final Insets INSETS_30 = new Insets(30);
+    public static final Insets INSETS_50 = new Insets(50);
 
     public Stage stage;
     private AnimationTimer loop;

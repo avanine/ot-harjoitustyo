@@ -20,6 +20,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import static ui.PongUi.BIG_FONT;
 import static ui.PongUi.HEIGHT;
+import static ui.PongUi.INSETS_30;
 import static ui.PongUi.WIDTH;
 /**
  * Creates a menu that allows the user to choose a scene
@@ -27,37 +28,37 @@ import static ui.PongUi.WIDTH;
  */
 public class WelcomeScene extends AbstractScene {
 
-    private final Hyperlink START_GAME = new Hyperlink("New Game");
-    private final Hyperlink SCORES = new Hyperlink("High Scores");
-    private final Hyperlink EXIT = new Hyperlink("Exit");
+    private final Hyperlink startGame = new Hyperlink("New Game");
+    private final Hyperlink scores = new Hyperlink("High Scores");
+    private final Hyperlink exit = new Hyperlink("Exit");
     private final BorderPane bp = new BorderPane();
 
     public WelcomeScene(PongUi application) {
 
         super(new Group(), WIDTH, HEIGHT);
 
-        START_GAME.setFont(BIG_FONT);
-        START_GAME.setTextFill(Color.PINK);
+        startGame.setFont(BIG_FONT);
+        startGame.setTextFill(Color.PINK);
 
-        SCORES.setFont(BIG_FONT);
-        SCORES.setTextFill(Color.PINK);
+        scores.setFont(BIG_FONT);
+        scores.setTextFill(Color.PINK);
 
-        EXIT.setFont(BIG_FONT);
-        EXIT.setTextFill(Color.PINK);
+        exit.setFont(BIG_FONT);
+        exit.setTextFill(Color.PINK);
 
         Node newTitle = createTitle("Pong");
-        FlowPane fp = new FlowPane(START_GAME, SCORES);
+        FlowPane fp = new FlowPane(startGame, scores);
         fp.setAlignment(Pos.CENTER);
         Insets gap = new Insets(5);
-        FlowPane.setMargin(START_GAME, gap);
-        FlowPane.setMargin(SCORES, gap);
+        FlowPane.setMargin(startGame, gap);
+        FlowPane.setMargin(scores, gap);
 
         bp.setTop(newTitle);
         bp.setCenter(fp);
-        bp.setBottom(EXIT);
-        BorderPane.setAlignment(EXIT, Pos.CENTER);
+        bp.setBottom(exit);
+        BorderPane.setAlignment(exit, Pos.CENTER);
 
-        BorderPane.setMargin(newTitle, new Insets(30));
+        BorderPane.setMargin(newTitle, INSETS_30);
 
         Parent root = getRoot();
         Group rootGroup = (Group) root;
@@ -66,7 +67,7 @@ public class WelcomeScene extends AbstractScene {
 
         rootGroup.getChildren().add(bp);
 
-        START_GAME.setOnAction(event -> {
+        startGame.setOnAction(event -> {
             try {
                 application.getPrimaryStage().setScene(new NameScene(application));
             } catch (Exception ex) {
@@ -74,7 +75,7 @@ public class WelcomeScene extends AbstractScene {
             }
         });
 
-        SCORES.setOnAction(event -> {
+        scores.setOnAction(event -> {
             try {
                 application.getPrimaryStage().setScene(new HighScoreScene(application));
             } catch (Exception ex) {
@@ -82,7 +83,7 @@ public class WelcomeScene extends AbstractScene {
             }
         });
 
-        EXIT.setOnAction(event -> {
+        exit.setOnAction(event -> {
             try {
                 Platform.exit();
             } catch (Exception ex) {

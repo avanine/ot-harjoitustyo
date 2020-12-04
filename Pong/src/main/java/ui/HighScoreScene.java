@@ -12,6 +12,7 @@ import static ui.PongUi.BIG_FONT;
 import static ui.PongUi.HEIGHT;
 import static ui.PongUi.SMALL_FONT;
 import static ui.PongUi.WIDTH;
+
 /**
  * Creates a scene that shows players with the most wins
  *
@@ -37,13 +38,13 @@ public class HighScoreScene extends AbstractScene {
         pane.setPrefSize(WIDTH, HEIGHT);
         /*
         if (dao.isEmpty()) {*/
-            pane.setCenter(noScoresYet);
+        pane.setCenter(noScoresYet);
         /*} else {
             Text highscores = new Text("High Scores");
             pane.setTop(highscores);
             pane.setCenter(new Text("Scores"));
         }
-        */
+         */
         pane.setBottom(back);
         BorderPane.setMargin(back, new Insets(30));
 
