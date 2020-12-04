@@ -4,8 +4,20 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
-
+import javafx.scene.text.Font;
+/**
+ * Class that contains the stage that is used for all the scenes
+ *
+ */
 public class PongUi extends Application {
+
+    public static final int WIDTH = 850;
+    public static final int HEIGHT = 600;
+    public static final Font SMALL_FONT = Font.font("Impact", 30);
+    public static final Font BIG_FONT = Font.font("Impact", 40);
+    
+    /** width of smaller "helper" boxes that are used for setting layout */
+    public static final double LAYOUT = 850 / 40;
 
     public Stage stage;
     private AnimationTimer loop;

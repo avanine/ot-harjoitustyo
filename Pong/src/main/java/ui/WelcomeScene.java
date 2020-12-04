@@ -18,43 +18,44 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-
+import static ui.PongUi.BIG_FONT;
+import static ui.PongUi.HEIGHT;
+import static ui.PongUi.WIDTH;
+/**
+ * Creates a menu that allows the user to choose a scene
+ *
+ */
 public class WelcomeScene extends AbstractScene {
 
-    private final Hyperlink startGame;
-    private final Hyperlink scores;
-    private final Hyperlink exit;
-    private final BorderPane bp;
+    private final Hyperlink START_GAME = new Hyperlink("New Game");
+    private final Hyperlink SCORES = new Hyperlink("High Scores");
+    private final Hyperlink EXIT = new Hyperlink("Exit");
+    private final BorderPane bp = new BorderPane();
 
     public WelcomeScene(PongUi application) {
 
-        super(new Group(), 850, 600);
+        super(new Group(), WIDTH, HEIGHT);
 
-        bp = new BorderPane();
+        START_GAME.setFont(BIG_FONT);
+        START_GAME.setTextFill(Color.PINK);
 
-        startGame = new Hyperlink("New Game");
-        startGame.setFont(Font.font("Impact", 40));
-        startGame.setTextFill(Color.PINK);
+        SCORES.setFont(BIG_FONT);
+        SCORES.setTextFill(Color.PINK);
 
-        scores = new Hyperlink("High Scores");
-        scores.setFont(Font.font("Impact", 40));
-        scores.setTextFill(Color.PINK);
-
-        exit = new Hyperlink("Exit");
-        exit.setFont(Font.font("Impact", 40));
-        exit.setTextFill(Color.PINK);
+        EXIT.setFont(BIG_FONT);
+        EXIT.setTextFill(Color.PINK);
 
         Node newTitle = createTitle("Pong");
-        FlowPane fp = new FlowPane(startGame, scores);
+        FlowPane fp = new FlowPane(START_GAME, SCORES);
         fp.setAlignment(Pos.CENTER);
         Insets gap = new Insets(5);
-        FlowPane.setMargin(startGame, gap);
-        FlowPane.setMargin(scores, gap);
+        FlowPane.setMargin(START_GAME, gap);
+        FlowPane.setMargin(SCORES, gap);
 
         bp.setTop(newTitle);
         bp.setCenter(fp);
-        bp.setBottom(exit);
-        BorderPane.setAlignment(exit, Pos.CENTER);
+        bp.setBottom(EXIT);
+        BorderPane.setAlignment(EXIT, Pos.CENTER);
 
         BorderPane.setMargin(newTitle, new Insets(30));
 
@@ -65,7 +66,7 @@ public class WelcomeScene extends AbstractScene {
 
         rootGroup.getChildren().add(bp);
 
-        startGame.setOnAction(event -> {
+        START_GAME.setOnAction(event -> {
             try {
                 application.getPrimaryStage().setScene(new NameScene(application));
             } catch (Exception ex) {
@@ -73,7 +74,7 @@ public class WelcomeScene extends AbstractScene {
             }
         });
 
-        scores.setOnAction(event -> {
+        SCORES.setOnAction(event -> {
             try {
                 application.getPrimaryStage().setScene(new HighScoreScene(application));
             } catch (Exception ex) {
@@ -81,7 +82,7 @@ public class WelcomeScene extends AbstractScene {
             }
         });
 
-        exit.setOnAction(event -> {
+        EXIT.setOnAction(event -> {
             try {
                 Platform.exit();
             } catch (Exception ex) {
@@ -89,7 +90,12 @@ public class WelcomeScene extends AbstractScene {
             }
         });
     }
-
+    /**
+     * creates a fancy animated title of the given word
+     * 
+     * @param title title to be created
+     * @return animated title
+     */
     private Node createTitle(String title) {
         final double movement = 25;
         HBox letters = new HBox();

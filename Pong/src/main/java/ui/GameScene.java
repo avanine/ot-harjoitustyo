@@ -12,19 +12,25 @@ import javafx.scene.Parent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
+import static ui.PongUi.HEIGHT;
+import static ui.PongUi.LAYOUT;
+import static ui.PongUi.WIDTH;
+/**
+ * Creates the game scene
+ *
+ */
 public class GameScene extends AbstractScene {
     
     private final PongUi application;
 
-    private final Rectangle top;
-    private final Rectangle bottom;
-    private final Rectangle left;
-    private final Rectangle right;
-    private final Paddle p1Paddle;
-    private final Paddle p2Paddle;
+    private final Rectangle TOP;
+    private final Rectangle BOTTOM;
+    private final Rectangle LEFT;
+    private final Rectangle RIGHT;
+    private final Paddle P1_PADDLE = new Paddle();
+    private final Paddle P2_PADDLE = new Paddle();
     
-    private final Ball ball;
+    private final Ball BALL;
 
     private final Group p1Score;
     private final Group p2Score;
@@ -37,88 +43,85 @@ public class GameScene extends AbstractScene {
     private final Random random = new Random();
     private int countdown = 50;
     
-    private final Player one;
-    private final Player two;
+    private final Player PLAYER_ONE;
+    private final Player PLAYER_TWO;
 
     public GameScene(PongUi application, Player one, Player two) {
-        super(new Group(), 850, 600);
+        super(new Group(), WIDTH, HEIGHT);
         
         this.application = application;
         
-        this.one = one;
-        this.two = two;
+        this.PLAYER_ONE = one;
+        this.PLAYER_TWO = two;
 
-        top = new Rectangle();
-        top.setLayoutX(0);
-        top.setLayoutY(0);
-        top.setWidth(850);
-        top.setHeight(850 / 40);
+        TOP = new Rectangle();
+        TOP.setLayoutX(0);
+        TOP.setLayoutY(0);
+        TOP.setWidth(WIDTH);
+        TOP.setHeight(LAYOUT);
 
-        bottom = new Rectangle();
-        bottom.setLayoutX(0);
-        bottom.setLayoutY(600 - 850 / 40);
-        bottom.setWidth(850);
-        bottom.setHeight(850 / 40);
+        BOTTOM = new Rectangle();
+        BOTTOM.setLayoutX(0);
+        BOTTOM.setLayoutY(HEIGHT - LAYOUT);
+        BOTTOM.setWidth(WIDTH);
+        BOTTOM.setHeight(LAYOUT);
 
-        left = new Rectangle();
-        left.setLayoutX(-850);
-        left.setLayoutY(0);
-        left.setWidth(850 - 850 / 40);
-        left.setHeight(600);
+        LEFT = new Rectangle();
+        LEFT.setLayoutX(-WIDTH);
+        LEFT.setLayoutY(0);
+        LEFT.setWidth(WIDTH - LAYOUT);
+        LEFT.setHeight(HEIGHT);
 
-        right = new Rectangle();
-        right.setLayoutX(850 + 850 / 40);
-        right.setLayoutY(0);
-        right.setWidth(850);
-        right.setHeight(600);
+        RIGHT = new Rectangle();
+        RIGHT.setLayoutX(WIDTH + LAYOUT);
+        RIGHT.setLayoutY(0);
+        RIGHT.setWidth(WIDTH);
+        RIGHT.setHeight(HEIGHT);
 
-        p1Paddle = new Paddle();
-        p1Paddle.setLayoutX(850 / 20);
-
-        p2Paddle = new Paddle();
-        p2Paddle.setLayoutX(850 - (850 / 20) - (850 / 40));
+        P1_PADDLE.setLayoutX(WIDTH / 20);
+        P2_PADDLE.setLayoutX(WIDTH - (WIDTH / 20) - LAYOUT);
 
         p1Score = new Group();
-        p1Score.setLayoutX(425 - 165);
+        p1Score.setLayoutX(WIDTH / 2 - 165);
         p1Score.setLayoutY(60);
 
         p2Score = new Group();
-        p2Score.setLayoutX(425 + 80);
+        p2Score.setLayoutX(WIDTH / 2 + 80);
         p2Score.setLayoutY(60);
 
         centerLine = new Group();
-        centerLine.setLayoutX(425 - (850 / 40) / 2);
-        for (double y = (850 / 40); y < 600; y += (1.93 * (850 / 40))) {
-            Rectangle box = new Rectangle(0, y, (850 / 40), (850 / 40));
+        centerLine.setLayoutX(WIDTH / 2 - LAYOUT / 2);
+        for (double y = LAYOUT; y < HEIGHT; y += (1.93 * LAYOUT)) {
+            Rectangle box = new Rectangle(0, y, LAYOUT, LAYOUT);
             box.setFill(Color.WHITE);
             centerLine.getChildren().add(box);
         }
 
-        ball = new Ball();
+        BALL = new Ball();
 
         Parent root = getRoot();
         Group rootGroup = (Group) root;
-        rootGroup.getChildren().add(top);
-        rootGroup.getChildren().add(bottom);
-        rootGroup.getChildren().add(left);
-        rootGroup.getChildren().add(right);
-        rootGroup.getChildren().add(p1Paddle);
-        rootGroup.getChildren().add(p2Paddle);
+        rootGroup.getChildren().add(TOP);
+        rootGroup.getChildren().add(BOTTOM);
+        rootGroup.getChildren().add(LEFT);
+        rootGroup.getChildren().add(RIGHT);
+        rootGroup.getChildren().add(P1_PADDLE);
+        rootGroup.getChildren().add(P2_PADDLE);
         rootGroup.getChildren().add(p1Score);
         rootGroup.getChildren().add(p2Score);
         rootGroup.getChildren().add(centerLine);
-        rootGroup.getChildren().add(ball);
+        rootGroup.getChildren().add(BALL);
               
         // activate paddle movement
         setOnKeyPressed(x -> {
-            p1Paddle.p1ActivateMovement(x);
-            p2Paddle.p2ActivateMovement(x);
+            P1_PADDLE.p1ActivateMovement(x);
+            P2_PADDLE.p2ActivateMovement(x);
         });
         
         // disable paddle movement
         setOnKeyReleased(x -> {
-            p1Paddle.disableMovement(x);
-            p2Paddle.disableMovement(x);
+            P1_PADDLE.disableMovement(x);
+            P2_PADDLE.disableMovement(x);
         });
         
         setPlayerScore(1, 0);
@@ -133,98 +136,101 @@ public class GameScene extends AbstractScene {
         }
 
         // move the ball
-        ball.setLayoutX(ball.getLayoutX() + ball.getMovementSpeed() * ball.getXDirection());
-        ball.setLayoutY(ball.getLayoutY() + ball.getMovementSpeed() * ball.getYDirection());
+        BALL.setLayoutX(BALL.getLayoutX() + BALL.getMovementSpeed() * BALL.getXDirection());
+        BALL.setLayoutY(BALL.getLayoutY() + BALL.getMovementSpeed() * BALL.getYDirection());
 
         // move paddles
-        p1Paddle.setLayoutY(p1Paddle.getLayoutY() + (p1Paddle.getYDirection() * p1Paddle.getMovementSpeed()));
-        p2Paddle.setLayoutY(p2Paddle.getLayoutY() + (p2Paddle.getYDirection() * p2Paddle.getMovementSpeed()));
+        P1_PADDLE.setLayoutY(P1_PADDLE.getLayoutY() + (P1_PADDLE.getYDirection() * P1_PADDLE.getMovementSpeed()));
+        P2_PADDLE.setLayoutY(P2_PADDLE.getLayoutY() + (P2_PADDLE.getYDirection() * P2_PADDLE.getMovementSpeed()));
         
         // top and bottom boundaries
-        Bounds topBounds = top.getBoundsInParent();
-        Bounds bottomBounds = bottom.getBoundsInParent();
+        Bounds topBounds = TOP.getBoundsInParent();
+        Bounds bottomBounds = BOTTOM.getBoundsInParent();
         
         // ball and paddle boundaries
-        Bounds ballBounds = ball.getBoundsInParent();
-        Bounds p1PaddleBounds = p1Paddle.getBoundsInParent();
-        Bounds p2PaddleBounds = p2Paddle.getBoundsInParent();
+        Bounds ballBounds = BALL.getBoundsInParent();
+        Bounds p1PaddleBounds = P1_PADDLE.getBoundsInParent();
+        Bounds p2PaddleBounds = P2_PADDLE.getBoundsInParent();
         
         // check that paddles stay within boundaries
         if (p1PaddleBounds.intersects(topBounds)) {
-            p1Paddle.setLayoutY(top.getLayoutY() + top.getHeight() + 0.1);
+            P1_PADDLE.setLayoutY(TOP.getLayoutY() + TOP.getHeight() + 0.1);
         } else if (p1PaddleBounds.intersects(bottomBounds)) {
-            p1Paddle.setLayoutY(bottomBounds.getMinY() - p1Paddle.getHeight() - 0.1);
+            P1_PADDLE.setLayoutY(bottomBounds.getMinY() - P1_PADDLE.getHeight() - 0.1);
         }
         
         if (p2PaddleBounds.intersects(topBounds)) {
-            p2Paddle.setLayoutY(top.getLayoutY() + top.getHeight() + 0.1);
+            P2_PADDLE.setLayoutY(TOP.getLayoutY() + TOP.getHeight() + 0.1);
         } else if (p2PaddleBounds.intersects(bottomBounds)) {
-            p2Paddle.setLayoutY(bottomBounds.getMinY() - p2Paddle.getHeight() - 0.1);
+            P2_PADDLE.setLayoutY(bottomBounds.getMinY() - P2_PADDLE.getHeight() - 0.1);
         }
 
         // if ball hits p1 paddle
         if (ballBounds.intersects(p1PaddleBounds)) {
-            ball.setLayoutX(p1PaddleBounds.getMaxX() + 0.1);
-            ball.setXDirection(1.0);
-            ball.increaseMovementSpeed();
+            BALL.setLayoutX(p1PaddleBounds.getMaxX() + 0.1);
+            BALL.setXDirection(1.0);
+            BALL.increaseMovementSpeed();
         // if ball hits p2 paddle
         } else if (ballBounds.intersects(p2PaddleBounds)) {
-            ball.setLayoutX(p2PaddleBounds.getMinX() - ball.getWidth() - 0.1);
-            ball.setXDirection(-1.0);
-            ball.increaseMovementSpeed();
+            BALL.setLayoutX(p2PaddleBounds.getMinX() - BALL.getWidth() - 0.1);
+            BALL.setXDirection(-1.0);
+            BALL.increaseMovementSpeed();
         // if ball hits top wall
         } else if (ballBounds.intersects(topBounds)) {
-            ball.setLayoutY(top.getLayoutY() + top.getHeight() + 0.01);
-            ball.setYDirection(1.0);
+            BALL.setLayoutY(TOP.getLayoutY() + TOP.getHeight() + 0.01);
+            BALL.setYDirection(1.0);
         // if ball hits bottom wall
         } else if (ballBounds.intersects(bottomBounds)) {
-            ball.setLayoutY(bottomBounds.getMinY() - ball.getHeight() - 0.01);
-            ball.setYDirection(-1.0);
+            BALL.setLayoutY(bottomBounds.getMinY() - BALL.getHeight() - 0.01);
+            BALL.setYDirection(-1.0);
         // if ball hits goal
         } else {
-            Bounds leftGoalBounds = left.getBoundsInParent();
-            Bounds rightGoalBounds = right.getBoundsInParent();
+            Bounds leftGoalBounds = LEFT.getBoundsInParent();
+            Bounds rightGoalBounds = RIGHT.getBoundsInParent();
             
-            if (ball.getLayoutX() < 20) {
-                two.newPoint();
-                if (two.getPoints() >= 10) {
-                    // move to end scene
+            if (BALL.getLayoutX() < 20) {
+                PLAYER_TWO.newPoint();
+                if (PLAYER_TWO.getPoints() >= 10) {
                     Stage stage = application.getPrimaryStage();
-                    stage.setScene(new EndScene(application, one, two));
+                    stage.setScene(new EndScene(application, PLAYER_ONE, PLAYER_TWO));
                 } else {
-                    // show new score
-                    setPlayerScore(2, two.getPoints());
+                    setPlayerScore(2, PLAYER_TWO.getPoints());
                     reset();
                 }
             } else if (ballBounds.intersects(rightGoalBounds)) {
-                one.newPoint();
-                if (one.getPoints() >= 10) {
-                    // move to end scene
+                PLAYER_ONE.newPoint();
+                if (PLAYER_ONE.getPoints() >= 10) {
                     Stage stage = application.getPrimaryStage();
-                    stage.setScene(new EndScene(application, one, two));
+                    stage.setScene(new EndScene(application, PLAYER_ONE, PLAYER_TWO));
                 } else {
-                    // show new score
-                    setPlayerScore(1, one.getPoints());
+                    setPlayerScore(1, PLAYER_ONE.getPoints());
                     reset();
                 }
             }
         }
     }
-    
+    /**
+     * resets game after a player scores
+     */
     private void reset() {
-        ball.setLayoutX(425 - (850 / 40) / 2);
-        ball.setLayoutY(300 - (850 / 40) / 2);
+        BALL.setLayoutX(WIDTH / 2 - LAYOUT / 2);
+        BALL.setLayoutY(HEIGHT / 2 - LAYOUT / 2);
         
         int randomValue = random.nextInt(3);
-        ball.randomiseDirection(randomValue);
-        ball.resetMovementSpeed();
+        BALL.randomiseDirection(randomValue);
+        BALL.resetMovementSpeed();
         
-        p1Paddle.setLayoutY(300 - p1Paddle.getHeight() / 2);
-        p2Paddle.setLayoutY(p1Paddle.getLayoutY());
+        P1_PADDLE.setLayoutY(HEIGHT / 2 - P1_PADDLE.getHeight() / 2);
+        P2_PADDLE.setLayoutY(P1_PADDLE.getLayoutY());
         
         countdown = 50;
     }
-    
+    /**
+     * sets visible scores for players
+     * 
+     * @param player player whose score needs to be updated
+     * @param score new score
+     */
     private void setPlayerScore(int player, int score) {
         if (player == 1) {
             p1Score.getChildren().clear();
@@ -234,13 +240,27 @@ public class GameScene extends AbstractScene {
             p2Score.getChildren().add(numberGroup(score));
         }
     }
-    
+    /**
+     * creates smaller rectangles that are needed for displaying scores
+     * 
+     * @param x x-coordinate
+     * @param y y-coordinate
+     * @param w width
+     * @param h height
+     * @return rectangle
+     * @throws IllegalArgumentException 
+     */
     private static Rectangle whiteRect(double x, double y, double w, double h) throws IllegalArgumentException {
         Rectangle rectangle = new Rectangle(x, y, w, h);
         rectangle.setFill(Color.WHITE);
         return rectangle;
 	}
-    
+    /**
+     * creates numbers that indicate players' scores
+     * 
+     * @param number number to be created
+     * @return group of rectangles that form a number
+     */
     private static Group numberGroup(int number) {
         Group group = new Group();
         ObservableList<Node> children = group.getChildren();

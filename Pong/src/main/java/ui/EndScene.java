@@ -1,73 +1,78 @@
-
 package ui;
 
+import dao.PlayerScoreDao;
 import domain.Player;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import static ui.PongUi.BIG_FONT;
+import static ui.PongUi.HEIGHT;
+import static ui.PongUi.SMALL_FONT;
+import static ui.PongUi.WIDTH;
 
+/**
+ * Creates an after-game scene that shows the winner
+ *
+ */
 public class EndScene extends AbstractScene {
-    
-    private final Text winner;
-    private final Text proceed;
-    private final Text menu;
-    
+
+    private final Text WINNER_TEXT;
+    private final Text PROCEED_TEXT;
+    private final Text MENU_TEXT;
+
     public EndScene(PongUi application, Player one, Player two) {
-        super(new Group(), 850, 600);
-        
-        menu = new Text("Press [SPACE] to go back to main menu");
-        menu.setFont(Font.font("Impact", 30));
-        menu.setFill(Color.PINK);
-        menu.setLayoutX(150);
-        menu.setLayoutY(500);
-        
-        String win;
-        String lose;
-        
+        super(new Group(), WIDTH, HEIGHT);
+
+        MENU_TEXT = new Text("Press [SPACE] to go back to main menu");
+        MENU_TEXT.setFont(SMALL_FONT);
+        MENU_TEXT.setFill(Color.PINK);
+        MENU_TEXT.setLayoutX(150);
+        MENU_TEXT.setLayoutY(500);
+
+        String winner;
+        String loser;
+
         if (one.getPoints() == 10) {
-            win = one.getName();
-            lose = two.getName();
+            winner = one.getName();
+            loser = two.getName();
         } else {
-            win = two.getName();
-            lose = one.getName();
+            winner = two.getName();
+            loser = one.getName();
         }
-        winner = new Text(win + " wins!");
-        winner.setFill(Color.PINK);
-        winner.setFont(Font.font("Impact", 40));
-        winner.setTextOrigin(VPos.CENTER);
-        winner.setLayoutX(200);
-        winner.setLayoutY(200);
-        
-        proceed = new Text("Salty, " + lose + "? Press [ENTER] to rematch!");
-        proceed.setFill(Color.WHITE);
-        proceed.setFont(Font.font("Impact", 30));
-        proceed.setTextOrigin(VPos.CENTER);
-        proceed.setLayoutX(80);
-        proceed.setLayoutY(400);
-        
+
+        WINNER_TEXT = new Text(winner + " wins!");
+        WINNER_TEXT.setFill(Color.PINK);
+        WINNER_TEXT.setFont(BIG_FONT);
+        WINNER_TEXT.setTextOrigin(VPos.CENTER);
+        WINNER_TEXT.setLayoutX(200);
+        WINNER_TEXT.setLayoutY(200);
+
+        PROCEED_TEXT = new Text("Salty, " + loser + "? Press [ENTER] to rematch!");
+        PROCEED_TEXT.setFill(Color.WHITE);
+        PROCEED_TEXT.setFont(SMALL_FONT);
+        PROCEED_TEXT.setTextOrigin(VPos.CENTER);
+        PROCEED_TEXT.setLayoutX(80);
+        PROCEED_TEXT.setLayoutY(400);
+
         Parent root = getRoot();
         Group rootGroup = (Group) root;
-        rootGroup.getChildren().add(winner);
-        rootGroup.getChildren().add(proceed);
-        rootGroup.getChildren().add(menu);
+        rootGroup.getChildren().add(WINNER_TEXT);
+        rootGroup.getChildren().add(PROCEED_TEXT);
+        rootGroup.getChildren().add(MENU_TEXT);
+
+        Stage stage = application.getPrimaryStage();
 
         setOnKeyReleased(x -> {
             if (x.getCode() == KeyCode.ENTER) {
                 one.resetPoints();
                 two.resetPoints();
-                Stage stage = application.getPrimaryStage();
                 stage.setScene(new GameScene(application, one, two));
             }
             if (x.getCode() == KeyCode.SPACE) {
-                Stage stage = application.getPrimaryStage();
                 stage.setScene(new WelcomeScene(application));
             }
         });
@@ -76,7 +81,7 @@ public class EndScene extends AbstractScene {
 
     @Override
     public void tick() {
-        
+
     }
-    
+
 }

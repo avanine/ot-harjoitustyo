@@ -1,29 +1,37 @@
 package dao;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.HashMap;
-
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+/**
+ * Class that saves high scores
+ *
+ */
 public class PlayerScoreDao {
     
-    private HashMap<String, Integer> scores;
-    
-    public PlayerScoreDao() {
-        scores = new HashMap<>();
+    private final String file;
+
+    public PlayerScoreDao(String file) throws Exception {
+        this.file = file;
     }
     
-    public int getScore(String name) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(new File("scores.txt")))) {
-            // find line with given name
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void clearScores() {
+
+        try (PrintWriter writer = new PrintWriter(new File(file))) {
+            writer.print("");
+            writer.close();
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(PlayerScoreDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return 0;
     }
     
-    public void saveNewWin(String name) {
-        
+    public boolean isEmpty() {
+        if (file.length() == 0) {
+            return true;
+        }
+        return false;
     }
 }

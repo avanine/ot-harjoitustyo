@@ -1,13 +1,11 @@
 import domain.Paddle;
-import domain.Player;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import static ui.PongUi.LAYOUT;
 
 public class PaddleTest {
     
@@ -35,12 +33,12 @@ public class PaddleTest {
 
     @Test
     public void widthIsCorrect() {
-        assertTrue(paddle.getWidth() == 850 / 40);
+        assertTrue(paddle.getWidth() == LAYOUT);
     }
     
     @Test
     public void heightIsCorrect() {
-        assertTrue(paddle.getHeight() == (850 / 40) * 5);
+        assertTrue(paddle.getHeight() == LAYOUT * 5);
     }
     
     @Test
