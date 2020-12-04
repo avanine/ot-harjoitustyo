@@ -10,7 +10,7 @@ import static ui.PongUi.LAYOUT;
  */
 public class Paddle extends Rectangle {
     
-    private final double MOVEMENT_SPEED = 7.5;
+    private final double movementSpeed = 7.5;
     private double yDirection;
     
     public Paddle() {
@@ -42,7 +42,7 @@ public class Paddle extends Rectangle {
      * @return paddle's movement speed
      */
     public double getMovementSpeed() {
-        return MOVEMENT_SPEED;
+        return movementSpeed;
     }
     /**
      * method for activating movement for left paddle

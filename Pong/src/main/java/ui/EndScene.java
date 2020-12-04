@@ -20,18 +20,18 @@ import static ui.PongUi.WIDTH;
  */
 public class EndScene extends AbstractScene {
 
-    private final Text WINNER_TEXT;
-    private final Text PROCEED_TEXT;
-    private final Text MENU_TEXT;
+    private final Text winnerText;
+    private final Text proceedText;
+    private final Text menuText;
 
     public EndScene(PongUi application, Player one, Player two) {
         super(new Group(), WIDTH, HEIGHT);
 
-        MENU_TEXT = new Text("Press [SPACE] to go back to main menu");
-        MENU_TEXT.setFont(SMALL_FONT);
-        MENU_TEXT.setFill(Color.PINK);
-        MENU_TEXT.setLayoutX(150);
-        MENU_TEXT.setLayoutY(500);
+        menuText = new Text("Press [SPACE] to go back to main menu");
+        menuText.setFont(SMALL_FONT);
+        menuText.setFill(Color.PINK);
+        menuText.setLayoutX(150);
+        menuText.setLayoutY(500);
 
         String winner;
         String loser;
@@ -44,25 +44,25 @@ public class EndScene extends AbstractScene {
             loser = one.getName();
         }
 
-        WINNER_TEXT = new Text(winner + " wins!");
-        WINNER_TEXT.setFill(Color.PINK);
-        WINNER_TEXT.setFont(BIG_FONT);
-        WINNER_TEXT.setTextOrigin(VPos.CENTER);
-        WINNER_TEXT.setLayoutX(200);
-        WINNER_TEXT.setLayoutY(200);
+        winnerText = new Text(winner + " wins!");
+        winnerText.setFill(Color.PINK);
+        winnerText.setFont(BIG_FONT);
+        winnerText.setTextOrigin(VPos.CENTER);
+        winnerText.setLayoutX(200);
+        winnerText.setLayoutY(200);
 
-        PROCEED_TEXT = new Text("Salty, " + loser + "? Press [ENTER] to rematch!");
-        PROCEED_TEXT.setFill(Color.WHITE);
-        PROCEED_TEXT.setFont(SMALL_FONT);
-        PROCEED_TEXT.setTextOrigin(VPos.CENTER);
-        PROCEED_TEXT.setLayoutX(80);
-        PROCEED_TEXT.setLayoutY(400);
+        proceedText = new Text("Salty, " + loser + "? Press [ENTER] to rematch!");
+        proceedText.setFill(Color.WHITE);
+        proceedText.setFont(SMALL_FONT);
+        proceedText.setTextOrigin(VPos.CENTER);
+        proceedText.setLayoutX(80);
+        proceedText.setLayoutY(400);
 
         Parent root = getRoot();
         Group rootGroup = (Group) root;
-        rootGroup.getChildren().add(WINNER_TEXT);
-        rootGroup.getChildren().add(PROCEED_TEXT);
-        rootGroup.getChildren().add(MENU_TEXT);
+        rootGroup.getChildren().add(winnerText);
+        rootGroup.getChildren().add(proceedText);
+        rootGroup.getChildren().add(menuText);
 
         Stage stage = application.getPrimaryStage();
 

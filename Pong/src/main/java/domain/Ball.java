@@ -9,9 +9,9 @@ import static ui.PongUi.LAYOUT;
  */
 public class Ball extends Rectangle {
     
-    private final double INITIAL_SPEED = 2.0;
-    private final double SPEED_INCREASE = 0.2;
-    private final double MAX_SPEED = 10.0;
+    private final double initialSpeed = 2.0;
+    private final double speedIncrease = 0.2;
+    private final double maxSpeed = 10.0;
     
     private double movementSpeed;
     private double xDirection;
@@ -24,7 +24,7 @@ public class Ball extends Rectangle {
         setWidth(LAYOUT);
         setHeight(LAYOUT);
         
-        this.movementSpeed = INITIAL_SPEED;
+        this.movementSpeed = initialSpeed;
         this.xDirection = 1.0;
         this.yDirection = -1.0;
     }
@@ -39,14 +39,14 @@ public class Ball extends Rectangle {
      * resets ball's movement speed
      */
     public void resetMovementSpeed() {
-        movementSpeed = INITIAL_SPEED;
+        movementSpeed = initialSpeed;
     }
     /**
      * increases ball's movement speed
      */
     public void increaseMovementSpeed() {
-        movementSpeed += SPEED_INCREASE;
-        movementSpeed = Math.min(movementSpeed, MAX_SPEED);
+        movementSpeed += speedIncrease;
+        movementSpeed = Math.min(movementSpeed, maxSpeed);
     }
     /**
      * 
