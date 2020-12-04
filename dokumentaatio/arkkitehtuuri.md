@@ -5,7 +5,7 @@
 
 Ohjelman rakenne koostuu kolmesta pakkauksesta:
 
-<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Pakkausrakenne.png" width="240">
+<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Pakkausrakenne.png" width="280">
 
 Pakkaus _Pong.ui_ sisältää JavaFX:llä toteutetun käyttöliittymän sekä eri näkymistä vastaavat Scene-luokat. Pakkauksesta _Pong.domain_ löytyy sovelluslogiikka, ja pakkauksesta _Pong.dao_ pisteiden tallentamiseen ja hakemiseen käytetty koodi.
 
@@ -26,7 +26,7 @@ Näkymät on eriytetty domain-pakkauksen sovelluslogiikasta vastaavista luokista
 
 Sovelluksen loogisen datamallin muodostavat luokat [Player](https://github.com/avanine/ot-harjoitustyo/blob/main/Pong/src/main/java/domain/Player.java), [Ball](https://github.com/avanine/ot-harjoitustyo/blob/main/Pong/src/main/java/domain/Ball.java) sekä [Paddle](https://github.com/avanine/ot-harjoitustyo/blob/main/Pong/src/main/java/domain/Paddle.java). Kuten arvata saattaa, Player kuvaa pelaajaa, Ball palloa, ja Paddle pelaajien käyttämiä mailoja:
 
-<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Domain.png" width="360">
+<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Domain.png" width="470">
 
 Luokka Player sisältää tarvittavat metodit pelaajien luomiseen sekä tietojen hakemiseen, mm.:
 - void setName()
@@ -40,7 +40,7 @@ Ball ja Paddle vastaavat enimmäkseen suorakulmion luomisesta ja sijoittamisesta
 
 _Player_ pääsee käsiksi luokkaan _PlayerScoreDao_, josta se voi tarvittaessa hakea pelaajan aiempien voittojen määrän high score -taulukon päivitystä varten.
 
-<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Pakkausrakenne(2).png" width="260">
+<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Pakkausrakenne(2).png" width="380">
 
 ## Tietojen pysyväistallennus
 
@@ -54,3 +54,17 @@ play3r;7
 Eli pelaajan nimi ja voittojen määrä puolipisteellä erotettuna.
 
 Tulevaisuudessa myös luokilla Paddle ja Ball saattaa olla pääsy pakkaukseen _Pong.dao_, jos sovellusta laajentaa muistamaan myös yksittäisen pelin tilastoja. Esimerkki tällaisesta voisi olla pelaaja, jolla on suurin määrä peräkkäisiä osumia palloon.
+
+## Päätoiminnallisuudet
+
+Kuvataan sovelluksen päätoiminnallisuuksia sekvenssikaaviona.
+
+### voittotilaston päivitys
+
+Kun toinen pelaajista saa 10 pistettä ja peli päättyy, vaihtuu näkymä _EndSceneen_, joka hoitaa tilaston päivityksen. Seuraava sekvenssikaavio kuvaa tilannetta, jossa voitoista kirjaa pitävä tekstitiedosto _scores.txt_ on vielä tyhjä.
+
+<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/sd_score.png" width="500">
+
+Ensin haetaan pelaajien pisteet, jotta selvitetään kumpi voitti. Player-luokan metodi getPoints() palauttaa 10 voittaneen pelaajan kohdalla. Tämän jälkeen luodaan uusi PlayerScoreDao-olio voittojen määrän päivitystä varten. Kutsutaan sen metodia addPoint(), joka vuorostaan tarkistaa, onko tekstitiedosto _scores.txt_ tyhjä. Tässä tapauksessa se on, eli metodi length() palauttaa 0. Lopuksi kirjoitetaan tekstitiedostoon uusi rivi joka sisältää voittajan nimen sekä voittojen määrän (1)* puolipisteellä erotettuna.
+
+_*Koska tekstitiedosto on tyhjä, tarkoittaa se ettei yhdelläkään pelaajalla ole vielä voittoja. Tämän takia voittojen määrä on automaattisesti 1._
