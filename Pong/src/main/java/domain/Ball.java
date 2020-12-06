@@ -106,6 +106,9 @@ public class Ball extends Rectangle {
         }
         return false;
     }
+    public double getMovementSpeed() {
+        return movementSpeed;
+    }
 
     /**
      * Resets ball's movement speed.

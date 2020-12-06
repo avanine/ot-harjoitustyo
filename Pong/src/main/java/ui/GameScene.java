@@ -138,7 +138,7 @@ public class GameScene extends AbstractScene {
     }
 
     /**
-     * resets game after a player scores
+     * Resets game after a player scores.
      */
     private void reset() {
 
