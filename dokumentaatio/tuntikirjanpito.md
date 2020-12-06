@@ -12,4 +12,5 @@
 |  2.12.  |   2   | pysyväistallennuksen eri tapojen opiskelu                                        |
 |  3.12.  |   3   | PlayerScoreDao-luokan metodien koodaus muutamaan kertaan                         |
 |  4.12.  |   1   | Koodin luettavuuden ja muokattavuuden parantaminen                               |
-| **yht.**|**30h**|                                                                                  |
+|  6.12.  |   1   | Kaiken sovelluslogiikan siirtäminen domainiin                                    |
+| **yht.**|**31h**|                                                                                  |
