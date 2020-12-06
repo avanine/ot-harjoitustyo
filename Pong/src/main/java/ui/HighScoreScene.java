@@ -14,7 +14,7 @@ import static ui.PongUi.SMALL_FONT;
 import static ui.PongUi.WIDTH;
 
 /**
- * Creates a scene that shows players with the most wins
+ * Creates a scene that shows players with the most wins.
  *
  */
 public class HighScoreScene extends AbstractScene {
@@ -22,7 +22,11 @@ public class HighScoreScene extends AbstractScene {
     private final Text noScoresYet;
     private final Hyperlink back;
     // private final PlayerScoreDao dao = new PlayerScoreDao();
-
+    /**
+     * Creates the scene for showing high scores.
+     * 
+     * @param application 
+     */
     public HighScoreScene(PongUi application) {
         super(new Group(), WIDTH, HEIGHT);
 

@@ -25,7 +25,7 @@ import static ui.PongUi.INSETS_50;
 import static ui.PongUi.SMALL_FONT;
 import static ui.PongUi.WIDTH;
 /**
- * Creates a scene that asks the players' names for keeping track of high scores
+ * Creates a scene that asks the players' names for keeping track of high scores.
  *
  */
 public class NameScene extends AbstractScene {
@@ -43,7 +43,11 @@ public class NameScene extends AbstractScene {
     
     private final Background startBackground = new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY));
     private final Background startBackgroundHover = new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY));
-    
+    /**
+     * Constructor for creating the scene.
+     * 
+     * @param application 
+     */
     public NameScene(PongUi application) {
         super(new Group(), WIDTH, HEIGHT);
 

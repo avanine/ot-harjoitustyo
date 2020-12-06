@@ -5,14 +5,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import static ui.PongUi.LAYOUT;
 /**
- * Class for creating paddle object
+ * Class for creating a paddle object.
  *
  */
 public class Paddle extends Rectangle {
     
     private final double movementSpeed = 7.5;
     private double yDirection;
-    
+    /**
+     * Initializes paddle.
+     */
     public Paddle() {
         
         setWidth(LAYOUT);
@@ -23,29 +25,38 @@ public class Paddle extends Rectangle {
         this.yDirection = 0.0;
     }
     /**
-     * 
-     * @return paddle's y-direction
+     * Adds movement for paddles.
      */
+    public void movePaddle() {
+        setLayoutY(getLayoutY() + (getYDirection() * getMovementSpeed()));
+    }
+    /**
+     * Makes sure that paddles stay within boundaries.
+     * 
+     * @param top top wall
+     * @param bottom bottom wall
+     */
+    public void boundCheck(Rectangle top, Rectangle bottom) {
+        if (getBoundsInParent().intersects(top.getBoundsInParent())) {
+            setLayoutY(top.getLayoutY() + top.getHeight() + 0.1);
+        } else if (getBoundsInParent().intersects(bottom.getBoundsInParent())) {
+            setLayoutY(bottom.getBoundsInParent().getMinY() - getHeight() - 0.1);
+        }
+    }
+
     public double getYDirection() {
         return yDirection;
     }
-    /**
-     * method for setting paddle's y-direction
-     * 
-     * @param y y-direction 
-     */
+
     public void setYDirection(double y) {
         yDirection = y;
     }
-    /**
-     * 
-     * @return paddle's movement speed
-     */
+
     public double getMovementSpeed() {
         return movementSpeed;
     }
     /**
-     * method for activating movement for left paddle
+     * Activates movement for left paddle.
      * 
      * @param x key event
      */
@@ -63,7 +74,7 @@ public class Paddle extends Rectangle {
         
     }
     /**
-     * method for activating movement for right paddle
+     * Activates movement for right paddle.
      * 
      * @param x key event
      */
@@ -80,7 +91,7 @@ public class Paddle extends Rectangle {
         }
     }
     /**
-     * method for disabling paddle movement
+     * Disables paddle movement.
      * 
      * @param x key event
      */

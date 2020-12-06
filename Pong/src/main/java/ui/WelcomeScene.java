@@ -23,7 +23,7 @@ import static ui.PongUi.HEIGHT;
 import static ui.PongUi.INSETS_30;
 import static ui.PongUi.WIDTH;
 /**
- * Creates a menu that allows the user to choose a scene
+ * Creates a menu that allows the user to choose a scene.
  *
  */
 public class WelcomeScene extends AbstractScene {
@@ -32,7 +32,11 @@ public class WelcomeScene extends AbstractScene {
     private final Hyperlink scores = new Hyperlink("High Scores");
     private final Hyperlink exit = new Hyperlink("Exit");
     private final BorderPane bp = new BorderPane();
-
+    /**
+     * Constructor for creating the scene.
+     * 
+     * @param application 
+     */
     public WelcomeScene(PongUi application) {
 
         super(new Group(), WIDTH, HEIGHT);

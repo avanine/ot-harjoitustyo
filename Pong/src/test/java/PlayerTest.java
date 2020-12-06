@@ -1,4 +1,5 @@
 import domain.Player;
+import javafx.scene.Group;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,9 +10,11 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PlayerTest {
     
     Player player;
+    Group testGroup;
     
     public PlayerTest() {
         player = new Player("abc");
+        testGroup = new Group();
     }
     
     @BeforeAll
@@ -55,18 +58,18 @@ public class PlayerTest {
     
     @Test
     public void newPointIncreasesPoints() {
-        player.newPoint();
+        player.newPoint(testGroup);
         assertTrue(player.getPoints() == 1);
         
         for (int i = 0; i < 50; i++) {
-            player.newPoint();
+            player.newPoint(testGroup);
         }
         assertTrue(player.getPoints() == 51);
     }
     
     @Test
     public void resetPointsResetsToZero() {
-        player.newPoint();
+        player.newPoint(testGroup);
         player.resetPoints();
         assertTrue(player.getPoints() == 0);
     }

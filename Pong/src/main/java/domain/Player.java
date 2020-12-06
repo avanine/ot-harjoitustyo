@@ -1,24 +1,31 @@
 package domain;
+
+import javafx.scene.Group;
+
 /**
- * Class for creating player object
+ * Class for creating a player object.
  *
  */
 public class Player {
 
     private String name;
     private int points;
-
+    /**
+     * Constructor to set the name and initial points.
+     * 
+     * @param name name
+     */
     public Player(String name) {
         this.name = name;
         this.points = 0;
         setName();
-
     }
+
     /**
-     * method to set acceptable name for player
+     * Method to set an acceptable name for player.
      */
     public void setName() {
-        
+
         if (this.name.contains(";")) {
             this.name = this.name.replaceAll(";", "");
         }
@@ -27,34 +34,56 @@ public class Player {
         }
         if (this.name.length() > 24) {
             this.name = this.name.substring(0, 24);
-        }        
+        }
     }
-    /**
-     * 
-     * @return player's name
-     */
+
     public String getName() {
         return this.name;
     }
-    /**
-     * 
-     * @return player's points
-     */
+
     public int getPoints() {
         return this.points;
     }
+
     /**
-     * resets player's points to zero
-     * 
-     * used when players want a rematch
+     * Resets player's points to zero.
+     *
+     * Used when players want a rematch.
      */
     public void resetPoints() {
         this.points = 0;
     }
+
     /**
-     * adds one point for the player
+     * Adds one point for the player.
+     * @param scoreGroup group that displays score
      */
-    public void newPoint() {
+    public void newPoint(Group scoreGroup) {
         this.points++;
+
+        if (points < 10) {
+            setVisibleScore(scoreGroup);
+        }
+    }
+
+    /**
+     * Method for checking whether the player won.
+     *
+     * @return true if player won
+     */
+    public boolean win() {
+        if (points >= 10) {
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Sets visible score for player.
+     * 
+     * @param playerScore group containing rectangles
+     */
+    public void setVisibleScore(Group playerScore) {
+        playerScore.getChildren().clear();
+        playerScore.getChildren().add(new NumberGroup(points));
     }
 }

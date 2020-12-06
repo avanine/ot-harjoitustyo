@@ -15,7 +15,7 @@ import static ui.PongUi.SMALL_FONT;
 import static ui.PongUi.WIDTH;
 
 /**
- * Creates an after-game scene that shows the winner
+ * Creates an after-game scene that shows the winner.
  *
  */
 public class EndScene extends AbstractScene {
@@ -23,7 +23,13 @@ public class EndScene extends AbstractScene {
     private final Text winnerText;
     private final Text proceedText;
     private final Text menuText;
-
+    /**
+     * Constructor that creates the end scene.
+     * 
+     * @param application application
+     * @param one player one
+     * @param two player two
+     */
     public EndScene(PongUi application, Player one, Player two) {
         super(new Group(), WIDTH, HEIGHT);
 

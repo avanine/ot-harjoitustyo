@@ -7,7 +7,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
 /**
- * Class that contains the stage that is used for all the scenes
+ * Class that contains the stage that is used for all the scenes.
  *
  */
 public class PongUi extends Application {
@@ -16,8 +16,7 @@ public class PongUi extends Application {
     public static final int HEIGHT = 600;
     public static final Font SMALL_FONT = Font.font("Impact", 30);
     public static final Font BIG_FONT = Font.font("Impact", 40);
-    
-    /** width of smaller "helper" boxes that are used for setting layout */
+
     public static final double LAYOUT = 850 / 40;
     
     public static final Insets INSETS_20 = new Insets(20);
@@ -62,7 +61,11 @@ public class PongUi extends Application {
     public Stage getPrimaryStage() {
         return stage;
     }
-
+    /**
+     * Main method to launch the app.
+     * 
+     * @param args 
+     */
     public static void main(String args[]) {
         launch(args);
     }
