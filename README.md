@@ -18,6 +18,8 @@ Peli on harjoitustyö Helsingin yliopiston tietojenkäsittelytieteen kurssille O
 
 [Viikko 5](https://github.com/avanine/ot-harjoitustyo/releases/tag/viikko5)
 
+[Viikko 6](https://github.com/avanine/ot-harjoitustyo/releases/tag/viikko6)
+
 ## Komentorivitoiminnot
 
 ### Testaus
