@@ -6,6 +6,8 @@ Peli on harjoitustyö Helsingin yliopiston tietojenkäsittelytieteen kurssille O
 
 ## Dokumentaatio
 
+[Käyttöohje](https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
+
 [Työaikakirjanpito](https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
 
 [Vaatimusmäärittely](https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
