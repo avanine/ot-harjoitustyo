@@ -13,4 +13,5 @@
 |  3.12.  |   3   | PlayerScoreDao-luokan metodien koodaus muutamaan kertaan                         |
 |  4.12.  |   1   | Koodin luettavuuden ja muokattavuuden parantaminen                               |
 |  6.12.  |   1   | Kaiken sovelluslogiikan siirtäminen domainiin                                    |
-| **yht.**|**31h**|                                                                                  |
+|  8.12.  |   2   | Käyttöohje, jar-tiedosto toimivaksi                                              |
+| **yht.**|**33h**|                                                                                  |
