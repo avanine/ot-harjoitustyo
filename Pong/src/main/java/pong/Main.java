@@ -1,5 +1,6 @@
+package pong;
 
-import ui.PongUi;
+import pong.ui.PongUi;
 
 public class Main {
 /**
