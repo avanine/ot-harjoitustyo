@@ -14,4 +14,6 @@
 |  4.12.  |   1   | Koodin luettavuuden ja muokattavuuden parantaminen                               |
 |  6.12.  |   1   | Kaiken sovelluslogiikan siirtäminen domainiin                                    |
 |  8.12.  |   2   | Käyttöohje, jar-tiedosto toimivaksi                                              |
-| **yht.**|**33h**|                                                                                  |
+|  12.12. |   4   | Google, pisteiden tallennus                                                      |
+|  13.12. |   5   | Google, koodin korjailu                                                          |
+| **yht.**|**42h**|                                                                                  |
