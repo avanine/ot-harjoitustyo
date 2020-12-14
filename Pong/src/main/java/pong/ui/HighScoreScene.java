@@ -36,7 +36,7 @@ public class HighScoreScene extends AbstractScene {
     public HighScoreScene(PongUi application) throws Exception {
         super(new Group(), WIDTH, HEIGHT);
 
-        highScoreText.setFill(Color.CHOCOLATE);
+        highScoreText.setFill(Color.WHITE);
         highScoreText.setFont(Font.font("Impact", 60));
 
         noScoresYet = new Text("This game hasn't been played yet :(");

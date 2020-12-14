@@ -6,8 +6,10 @@ import java.util.logging.Logger;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import pong.domain.Ball;
 import pong.domain.Paddle;
 import pong.domain.Player;
@@ -25,7 +27,7 @@ public class PracticeScene extends AbstractScene {
     private final Ball ball = new Ball();
     private final Paddle computerPaddle = new Paddle();
     private final Paddle playerPaddle = new Paddle();
-    private final Hyperlink menu = new Hyperlink("Menu");
+    private final Text menu = new Text("Menu - Press [ENTER]");
 
     Rectangle topWall;
     Rectangle bottomWall;
@@ -52,9 +54,9 @@ public class PracticeScene extends AbstractScene {
         computerPaddle.setLayoutY(0);
 
         menu.setFont(SMALL_FONT);
-        menu.setTextFill(Color.WHITE);
-        menu.setLayoutX(40);
-        menu.setLayoutY(30);
+        menu.setFill(Color.GRAY);
+        menu.setLayoutX(90);
+        menu.setLayoutY(550);
 
         Wall wallBuilder = new Wall();
         topWall = wallBuilder.topWall();
@@ -66,7 +68,7 @@ public class PracticeScene extends AbstractScene {
         Group rootGroup = (Group) root;
 
         gameScene.createCenterLine(rootGroup);
-//        rootGroup.getChildren().add(menu);
+        rootGroup.getChildren().add(menu);
         rootGroup.getChildren().add(computerPaddle);
         rootGroup.getChildren().add(playerPaddle);
         rootGroup.getChildren().add(topWall);
@@ -75,16 +77,12 @@ public class PracticeScene extends AbstractScene {
         rootGroup.getChildren().add(rightWall);
         rootGroup.getChildren().add(ball);
 
-        menu.setOnAction(event -> {
-            try {
-                application.getPrimaryStage().setScene(new WelcomeScene(application));
-            } catch (Exception ex) {
-                Logger.getLogger(WelcomeScene.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
-
         // activate paddle movement
+        // go back to menu when enter is pressed
         setOnKeyPressed(x -> {
+            if (x.getCode() == KeyCode.ENTER) {
+                application.getPrimaryStage().setScene(new WelcomeScene(application));
+            }
             playerPaddle.rightPaddleActivateMovement(x);
         });
 

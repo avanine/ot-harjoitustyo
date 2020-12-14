@@ -30,7 +30,7 @@ import static pong.ui.PongUi.WIDTH;
 public class WelcomeScene extends AbstractScene {
 
     private final Hyperlink startGame = new Hyperlink("New Game");
-    private final Hyperlink practiceMode = new Hyperlink("Practice Mode");
+    private final Hyperlink practiceMode = new Hyperlink("Practice");
     private final Hyperlink scores = new Hyperlink("High Scores");
     private final Hyperlink settings = new Hyperlink("Settings");
     private final Hyperlink exit = new Hyperlink("Exit");
@@ -109,6 +109,14 @@ public class WelcomeScene extends AbstractScene {
         scores.setOnAction(event -> {
             try {
                 application.getPrimaryStage().setScene(new HighScoreScene(application));
+            } catch (Exception ex) {
+                Logger.getLogger(WelcomeScene.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        
+        settings.setOnAction(event -> {
+            try {
+                application.getPrimaryStage().setScene(new SettingsScene(application));
             } catch (Exception ex) {
                 Logger.getLogger(WelcomeScene.class.getName()).log(Level.SEVERE, null, ex);
             }
