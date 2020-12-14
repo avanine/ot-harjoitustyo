@@ -4,6 +4,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import static pong.ui.PongUi.LAYOUT;
+import static pong.ui.PongUi.WIDTH;
 /**
  * Class for creating a paddle object.
  *
@@ -20,6 +21,7 @@ public class Paddle extends Rectangle {
         setWidth(LAYOUT);
         setHeight(LAYOUT * 5);
         setFill(Color.PINK);
+        setLayoutX(WIDTH - (WIDTH / 20) - LAYOUT);
         setLayoutY(300 - getHeight() / 2);
         
         this.yDirection = 0.0;
@@ -60,7 +62,7 @@ public class Paddle extends Rectangle {
      * 
      * @param x key event
      */
-    public void p1ActivateMovement(KeyEvent x) {
+    public void leftPaddleActivateMovement(KeyEvent x) {
         switch (x.getCode()) {
             case W:
                 yDirection = -1.0;
@@ -78,7 +80,7 @@ public class Paddle extends Rectangle {
      * 
      * @param x key event
      */
-    public void p2ActivateMovement(KeyEvent x) {
+    public void rightPaddleActivateMovement(KeyEvent x) {
         switch (x.getCode()) {
             case UP:
                 yDirection = -1.0;

@@ -23,18 +23,18 @@ public final class GameScene extends AbstractScene {
 
     private final PongUi application;
 
-    private final Rectangle topWall;
-    private final Rectangle bottomWall;
-    private final Rectangle leftWall;
-    private final Rectangle rightWall;
     private final Paddle playerOnePaddle = new Paddle();
     private final Paddle playerTwoPaddle = new Paddle();
 
     private final Ball ball;
+    
+    Rectangle topWall;
+    Rectangle bottomWall;
+    Rectangle leftWall;
+    Rectangle rightWall;
 
     private final Group leftScoreGroup;
     private final Group rightScoreGroup;
-    private final Group centerLine;
 
     private int countdown = 50;
 
@@ -55,14 +55,13 @@ public final class GameScene extends AbstractScene {
         this.playerOne = one;
         this.playerTwo = two;
 
-        // create walls
-        topWall = new Rectangle(0, 0, WIDTH, LAYOUT);
-        bottomWall = new Rectangle(0, HEIGHT - LAYOUT, WIDTH, LAYOUT);
-        leftWall = new Rectangle(-WIDTH, 0, WIDTH - LAYOUT, HEIGHT);
-        rightWall = new Rectangle(WIDTH + LAYOUT, 0, WIDTH, HEIGHT);
-
         playerOnePaddle.setLayoutX(WIDTH / 20);
-        playerTwoPaddle.setLayoutX(WIDTH - (WIDTH / 20) - LAYOUT);
+        
+        Wall wallBuilder = new Wall();
+        topWall = wallBuilder.topWall();
+        bottomWall = wallBuilder.bottomWall();
+        leftWall = wallBuilder.leftWall();
+        rightWall = wallBuilder.rightWall();
 
         leftScoreGroup = new Group();
         leftScoreGroup.setLayoutX(WIDTH / 2 - 165);
@@ -72,14 +71,7 @@ public final class GameScene extends AbstractScene {
         rightScoreGroup.setLayoutX(WIDTH / 2 + 80);
         rightScoreGroup.setLayoutY(60);
 
-        centerLine = new Group();
-        centerLine.setLayoutX(WIDTH / 2 - LAYOUT / 2);
-
-        for (double y = LAYOUT; y < HEIGHT; y += (1.93 * LAYOUT)) {
-            Rectangle box = new Rectangle(0, y, LAYOUT, LAYOUT);
-            box.setFill(Color.WHITE);
-            centerLine.getChildren().add(box);
-        }
+        
 
         ball = new Ball();
 
@@ -89,17 +81,17 @@ public final class GameScene extends AbstractScene {
         rootGroup.getChildren().add(bottomWall);
         rootGroup.getChildren().add(leftWall);
         rootGroup.getChildren().add(rightWall);
+        createCenterLine(rootGroup);
         rootGroup.getChildren().add(playerOnePaddle);
         rootGroup.getChildren().add(playerTwoPaddle);
         rootGroup.getChildren().add(leftScoreGroup);
         rootGroup.getChildren().add(rightScoreGroup);
-        rootGroup.getChildren().add(centerLine);
         rootGroup.getChildren().add(ball);
 
         // activate paddle movement
         setOnKeyPressed(x -> {
-            playerOnePaddle.p1ActivateMovement(x);
-            playerTwoPaddle.p2ActivateMovement(x);
+            playerOnePaddle.leftPaddleActivateMovement(x);
+            playerTwoPaddle.rightPaddleActivateMovement(x);
         });
 
         // disable paddle movement
@@ -110,6 +102,19 @@ public final class GameScene extends AbstractScene {
 
         setVisibleScore(leftScoreGroup, playerOne.getPoints());
         setVisibleScore(rightScoreGroup, playerTwo.getPoints());
+    }
+    
+    public void createCenterLine(Group rootGroup) {
+        Group centerLine = new Group();
+        centerLine.setLayoutX(WIDTH / 2 - LAYOUT / 2);
+
+        for (double y = LAYOUT; y < HEIGHT; y += (1.93 * LAYOUT)) {
+            Rectangle box = new Rectangle(0, y, LAYOUT, LAYOUT);
+            box.setFill(Color.WHITE);
+            centerLine.getChildren().add(box);
+        }
+        
+        rootGroup.getChildren().add(centerLine);
     }
 
     @Override

@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -11,7 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -20,7 +21,6 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import static pong.ui.PongUi.BIG_FONT;
 import static pong.ui.PongUi.HEIGHT;
-import static pong.ui.PongUi.INSETS_30;
 import static pong.ui.PongUi.WIDTH;
 
 /**
@@ -30,8 +30,11 @@ import static pong.ui.PongUi.WIDTH;
 public class WelcomeScene extends AbstractScene {
 
     private final Hyperlink startGame = new Hyperlink("New Game");
+    private final Hyperlink practiceMode = new Hyperlink("Practice Mode");
     private final Hyperlink scores = new Hyperlink("High Scores");
+    private final Hyperlink settings = new Hyperlink("Settings");
     private final Hyperlink exit = new Hyperlink("Exit");
+    
     private final BorderPane bp = new BorderPane();
 
     /**
@@ -45,37 +48,59 @@ public class WelcomeScene extends AbstractScene {
 
         startGame.setFont(BIG_FONT);
         startGame.setTextFill(Color.PINK);
+        
+        practiceMode.setFont(BIG_FONT);
+        practiceMode.setTextFill(Color.PINK);
 
         scores.setFont(BIG_FONT);
         scores.setTextFill(Color.PINK);
+        
+        settings.setFont(BIG_FONT);
+        settings.setTextFill(Color.PINK);
 
         exit.setFont(BIG_FONT);
         exit.setTextFill(Color.PINK);
 
         Node newTitle = createTitle("Pong");
-        FlowPane fp = new FlowPane(startGame, scores);
-        fp.setAlignment(Pos.CENTER);
-        Insets gap = new Insets(5);
-        FlowPane.setMargin(startGame, gap);
-        FlowPane.setMargin(scores, gap);
+
+        GridPane gp = new GridPane();
+        gp.add(startGame, 0, 0);
+        gp.add(practiceMode, 0, 1);
+        gp.add(scores, 0, 2);
+        gp.add(settings, 0, 3);
+        gp.add(exit, 0, 4);
+        
+        GridPane.setHalignment(startGame, HPos.CENTER);
+        GridPane.setHalignment(practiceMode, HPos.CENTER);
+        GridPane.setHalignment(scores, HPos.CENTER);
+        GridPane.setHalignment(settings, HPos.CENTER);
+        GridPane.setHalignment(exit, HPos.CENTER);
 
         bp.setTop(newTitle);
-        bp.setCenter(fp);
-        bp.setBottom(exit);
-        BorderPane.setAlignment(exit, Pos.CENTER);
+        bp.setCenter(gp);
 
-        BorderPane.setMargin(newTitle, INSETS_30);
+        BorderPane.setMargin(newTitle, new Insets(20));
 
         Parent root = getRoot();
         Group rootGroup = (Group) root;
-        root.setTranslateX(210);
+        
+        root.setTranslateX(290);
         root.setTranslateY(30);
+       
 
         rootGroup.getChildren().add(bp);
 
         startGame.setOnAction(event -> {
             try {
                 application.getPrimaryStage().setScene(new NameScene(application));
+            } catch (Exception ex) {
+                Logger.getLogger(WelcomeScene.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        
+        practiceMode.setOnAction(event -> {
+            try {
+                application.getPrimaryStage().setScene(new PracticeScene(application));
             } catch (Exception ex) {
                 Logger.getLogger(WelcomeScene.class.getName()).log(Level.SEVERE, null, ex);
             }

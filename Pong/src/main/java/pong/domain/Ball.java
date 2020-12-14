@@ -41,6 +41,10 @@ public class Ball extends Rectangle {
         setLayoutX(getLayoutX() + movementSpeed * xDirection);
         setLayoutY(getLayoutY() + movementSpeed * yDirection);
     }
+    
+    public void setColor(Color color) {
+        setFill(color);
+    }
 
     /**
      * Checks if the ball intersects any bounds.
