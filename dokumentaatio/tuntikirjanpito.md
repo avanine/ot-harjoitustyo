@@ -11,9 +11,10 @@
 |  23.11. |   1   | testien lisääminen, koodin korjailu                                              |
 |  2.12.  |   2   | pysyväistallennuksen eri tapojen opiskelu                                        |
 |  3.12.  |   3   | PlayerScoreDao-luokan metodien koodaus muutamaan kertaan                         |
-|  4.12.  |   1   | Koodin luettavuuden ja muokattavuuden parantaminen                               |
-|  6.12.  |   1   | Kaiken sovelluslogiikan siirtäminen domainiin                                    |
-|  8.12.  |   2   | Käyttöohje, jar-tiedosto toimivaksi                                              |
+|  4.12.  |   1   | koodin luettavuuden ja muokattavuuden parantaminen                               |
+|  6.12.  |   1   | kaiken sovelluslogiikan siirtäminen domainiin                                    |
+|  8.12.  |   2   | käyttöohje, jar-tiedosto toimivaksi                                              |
 |  12.12. |   4   | Google, pisteiden tallennus                                                      |
 |  13.12. |   5   | Google, koodin korjailu                                                          |
-| **yht.**|**42h**|                                                                                  |
+|  14.12. |   5   | PracticeScene, PlayerScoreDao-testit                                             |
+| **yht.**|**47h**|                                                                                  |
