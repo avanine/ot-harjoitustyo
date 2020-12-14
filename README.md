@@ -33,7 +33,7 @@ mvn test
 ja testikattavuusraportin saat komennolla
 
 ```
-mvn jacoco:report
+mvn test jacoco:report
 ```
 
 Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
