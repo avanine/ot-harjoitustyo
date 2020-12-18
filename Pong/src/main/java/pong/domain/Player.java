@@ -1,7 +1,5 @@
 package pong.domain;
 
-import static pong.ui.PongUi.dao;
-
 /**
  * Class for creating a player object.
  *
@@ -66,11 +64,9 @@ public final class Player {
      * Method for checking whether the player won. If true, saves new win.
      *
      * @return true if player won
-     * @throws java.lang.Exception if file doesn't exist
      */
-    public boolean win() throws Exception {
+    public boolean win() {
         if (points >= 10) {
-            dao.addNewWin(name);
             return true;
         }
         return false;

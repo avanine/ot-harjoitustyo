@@ -34,9 +34,11 @@ public final class ThemeColorDao {
      */
     public void load() throws IOException {
         try (Scanner scan = new Scanner(new File(file))) {
+            while (scan.hasNextLine()) {
             String[] split = scan.nextLine().split(";");
             color = split[0];
             markerLayout = Integer.parseInt(split[1]);
+            }
         } catch (FileNotFoundException | NumberFormatException e) {
             FileWriter writer = new FileWriter(new File(file));
             writer.close();

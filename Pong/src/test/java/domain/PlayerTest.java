@@ -52,4 +52,12 @@ public class PlayerTest {
         player.resetPoints();
         assertTrue(player.getPoints() == 0);
     }
+
+    @Test
+    public void winMethodWorks() {
+        for (int i = 1; i <= 10; i++) {
+            player.newPoint();
+        }
+        assertTrue(player.win());
+    }
 }

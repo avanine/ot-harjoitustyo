@@ -4,16 +4,22 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import static pong.ui.PongUi.BIG_FONT;
 import static pong.ui.PongUi.HEIGHT;
 import static pong.ui.PongUi.INSETS_30;
 import static pong.ui.PongUi.INSETS_50;
 import static pong.ui.PongUi.SMALL_FONT;
 import static pong.ui.PongUi.WIDTH;
+import static pong.ui.PongUi.colorDao;
 import static pong.ui.PongUi.dao;
 
 /**
@@ -22,7 +28,6 @@ import static pong.ui.PongUi.dao;
  */
 public class HighScoreScene extends AbstractScene {
 
-    private final Text noScoresYet;
     private final Hyperlink back;
     private final Text topPlayers;
     private final Text highScoreText = new Text("High Scores");
@@ -39,20 +44,23 @@ public class HighScoreScene extends AbstractScene {
         highScoreText.setFill(Color.WHITE);
         highScoreText.setFont(Font.font("Impact", 60));
 
-        noScoresYet = new Text("This game hasn't been played yet :(");
-        noScoresYet.setFill(Color.PINK);
-        noScoresYet.setFont(BIG_FONT);
-
         back = new Hyperlink("Back to Menu");
         back.setTextFill(Color.WHITE);
         back.setFont(SMALL_FONT);
 
         topPlayers = new Text(dao.getTopScores(5));
-        topPlayers.setFill(Color.PINK);
+        topPlayers.setFill(colorDao.getColor());
         topPlayers.setFont(SMALL_FONT);
 
         BorderPane pane = new BorderPane();
         pane.setPrefSize(WIDTH, HEIGHT);
+        
+        Image image = new Image(getClass().getResource("/confetti.png").toExternalForm());
+        BackgroundSize backgroundSize = new BackgroundSize(1.0, 1.0, true, true, false, false);
+        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
+        Background CONFETTI_BACKGROUND = new Background(backgroundImage);
+        
+        pane.setBackground(CONFETTI_BACKGROUND);
 
         pane.setTop(highScoreText);
         pane.setCenter(topPlayers);

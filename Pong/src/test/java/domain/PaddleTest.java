@@ -1,15 +1,19 @@
 package domain;
 
 import static org.junit.Assert.assertTrue;
+import org.junit.Before;
 import org.junit.Test;
 import pong.domain.Paddle;
+import static pong.ui.PongUi.HEIGHT;
 import static pong.ui.PongUi.LAYOUT;
+import pong.ui.Wall;
 
 public class PaddleTest {
 
     Paddle paddle;
-
-    public PaddleTest() {
+    
+    @Before
+    public void setUp() {
         paddle = new Paddle();
     }
 
@@ -46,5 +50,19 @@ public class PaddleTest {
 
     @Test
     public void paddleMoves() {
+        paddle.setYDirection(1);
+        paddle.movePaddle();
+        assertTrue(paddle.getLayoutY() != 300 - paddle.getHeight() / 2);
+    }
+
+    @Test
+    public void boundCheckWorks() {
+        Wall wallBuilder = new Wall();
+        paddle.setLayoutY(HEIGHT - LAYOUT + 1);
+        paddle.boundCheck(wallBuilder.topWall(), wallBuilder.bottomWall());
+        assertTrue(paddle.getLayoutY() != HEIGHT - LAYOUT + 1);
+        paddle.setLayoutY(0);
+        paddle.boundCheck(wallBuilder.topWall(), wallBuilder.bottomWall());
+        assertTrue(paddle.getLayoutY() != 0);
     }
 }

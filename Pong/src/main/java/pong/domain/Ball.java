@@ -4,6 +4,7 @@ import javafx.geometry.Bounds;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import static pong.ui.PongUi.LAYOUT;
+import static pong.ui.PongUi.colorDao;
 
 /**
  *
@@ -40,10 +41,6 @@ public class Ball extends Rectangle {
     public void moveBall() {
         setLayoutX(getLayoutX() + movementSpeed * xDirection);
         setLayoutY(getLayoutY() + movementSpeed * yDirection);
-    }
-    
-    public void setColor(Color color) {
-        setFill(color);
     }
 
     /**
@@ -135,8 +132,16 @@ public class Ball extends Rectangle {
         xDirection = direction;
     }
 
+    public double getXDirection() {
+        return xDirection;
+    }
+
     public void setYDirection(double direction) {
         yDirection = direction;
+    }
+
+    public double getYDirection() {
+        return yDirection;
     }
 
     /**

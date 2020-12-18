@@ -6,14 +6,9 @@ import java.util.Properties;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 
 public class PlayerScoreDaoTest {
-
-    @Rule
-    public TemporaryFolder testFolder = new TemporaryFolder();
 
     PlayerScoreDao dao;
 
@@ -34,5 +29,22 @@ public class PlayerScoreDaoTest {
     @Test
     public void getTopScoresWorks() throws Exception {
         assertEquals(dao.getTopScores(1), "testPlayer    -   1\n");
+    }
+
+    @Test
+    public void chosenAmountOfPlayersReturnsRightAmount() {
+        for (int i = 0; i <= 3; i++) {
+            dao.addNewWin("testPlayer");
+        }
+        dao.addNewWin("abc");
+        dao.addNewWin("abc");
+        dao.addNewWin("asdfg");
+        assertEquals(dao.getTopScores(2), "testPlayer    -   5\nabc    -   2\n");
+    }
+
+    @Test
+    public void clearScoresEmptiesFile() {
+        dao.clearScores();
+        assertEquals(dao.getTopScores(5), "");
     }
 }

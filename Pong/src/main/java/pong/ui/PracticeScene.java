@@ -1,11 +1,8 @@
 package pong.ui;
 
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.scene.Group;
 import javafx.scene.Parent;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -17,6 +14,7 @@ import static pong.ui.PongUi.HEIGHT;
 import static pong.ui.PongUi.LAYOUT;
 import static pong.ui.PongUi.SMALL_FONT;
 import static pong.ui.PongUi.WIDTH;
+import static pong.ui.PongUi.colorDao;
 
 /**
  * Creates a practice game scene.
@@ -27,7 +25,7 @@ public class PracticeScene extends AbstractScene {
     private final Ball ball = new Ball();
     private final Paddle computerPaddle = new Paddle();
     private final Paddle playerPaddle = new Paddle();
-    private final Text menu = new Text("Menu - Press [ENTER]");
+    private final Text menuText = new Text("Menu - Press [ENTER]");
 
     Rectangle topWall;
     Rectangle bottomWall;
@@ -52,23 +50,28 @@ public class PracticeScene extends AbstractScene {
         computerPaddle.setLayoutX(WIDTH / 20);
         computerPaddle.setHeight(HEIGHT);
         computerPaddle.setLayoutY(0);
+        
+        playerPaddle.setFill(colorDao.getColor());
+        computerPaddle.setFill(colorDao.getColor());
 
-        menu.setFont(SMALL_FONT);
-        menu.setFill(Color.GRAY);
-        menu.setLayoutX(90);
-        menu.setLayoutY(550);
+        menuText.setFont(SMALL_FONT);
+        menuText.setFill(Color.GRAY);
+        menuText.setLayoutX(90);
+        menuText.setLayoutY(550);
 
         Wall wallBuilder = new Wall();
         topWall = wallBuilder.topWall();
         bottomWall = wallBuilder.bottomWall();
         leftWall = wallBuilder.leftWall();
         rightWall = wallBuilder.rightWall();
+        
+        ball.setFill(colorDao.getColor());
 
         Parent root = getRoot();
         Group rootGroup = (Group) root;
 
         gameScene.createCenterLine(rootGroup);
-        rootGroup.getChildren().add(menu);
+        rootGroup.getChildren().add(menuText);
         rootGroup.getChildren().add(computerPaddle);
         rootGroup.getChildren().add(playerPaddle);
         rootGroup.getChildren().add(topWall);

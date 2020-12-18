@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import static pong.ui.PongUi.LAYOUT;
 import static pong.ui.PongUi.WIDTH;
+import static pong.ui.PongUi.colorDao;
 /**
  * Class for creating a paddle object.
  *

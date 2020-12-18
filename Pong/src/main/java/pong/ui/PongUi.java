@@ -9,6 +9,7 @@ import javafx.animation.AnimationTimer;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
+import pong.dao.ThemeColorDao;
 
 /**
  * Class that contains the stage that is used for all the scenes.
@@ -31,18 +32,19 @@ public class PongUi extends Application {
     private AnimationTimer loop;
 
     public static PlayerScoreDao dao;
+    public static ThemeColorDao colorDao;
 
     @Override
     public void init() throws Exception {
         Properties properties = new Properties();
         properties.load(new FileInputStream("config.properties"));
         dao = new PlayerScoreDao(properties.getProperty("scores"));
+        colorDao = new ThemeColorDao(properties.getProperty("color"));
         super.init();
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         stage = primaryStage;
         stage.setTitle("Pong");
         stage.setResizable(false);

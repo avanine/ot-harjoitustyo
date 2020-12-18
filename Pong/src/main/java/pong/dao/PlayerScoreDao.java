@@ -40,8 +40,7 @@ public final class PlayerScoreDao {
      * @throws IOException if file doesn't exist
      */
     public void load() throws IOException {
-        try {
-            Scanner scan = new Scanner(new File(file));
+        try (Scanner scan = new Scanner(new File(file))) {
             while (scan.hasNextLine()) {
                 String[] split = scan.nextLine().split(";");
                 String name = split[0];
@@ -95,7 +94,7 @@ public final class PlayerScoreDao {
         if (scores.isEmpty()) {
             return "";
         }
-        
+
         Collections.sort(numberOfWins);
         Collections.reverse(numberOfWins);
         String topPlayers = "";
@@ -111,9 +110,10 @@ public final class PlayerScoreDao {
         }
         return topPlayers;
     }
+
     /**
      * Returns selected amount of top players.
-     * 
+     *
      * @param amount how many players should be returned
      * @param topPlayers all players who have wins
      * @return chosen amount of players and their scores
@@ -133,6 +133,8 @@ public final class PlayerScoreDao {
     public void clearScores() {
         try (FileWriter writer = new FileWriter(new File(file))) {
             writer.write("");
+            writer.close();
+            scores.clear();
 
         } catch (IOException e) {
         }

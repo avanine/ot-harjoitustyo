@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import static pong.ui.PongUi.HEIGHT;
 import static pong.ui.PongUi.LAYOUT;
 import static pong.ui.PongUi.WIDTH;
+import static pong.ui.PongUi.colorDao;
 
 /**
  * Creates the game scene.
@@ -26,7 +27,7 @@ public final class GameScene extends AbstractScene {
     private final Paddle playerOnePaddle = new Paddle();
     private final Paddle playerTwoPaddle = new Paddle();
 
-    private final Ball ball;
+    private Ball ball;
     
     Rectangle topWall;
     Rectangle bottomWall;
@@ -53,9 +54,12 @@ public final class GameScene extends AbstractScene {
 
         this.application = application;
         this.playerOne = one;
-        this.playerTwo = two;
+        this.playerTwo = two;      
 
         playerOnePaddle.setLayoutX(WIDTH / 20);
+        
+        playerOnePaddle.setFill(colorDao.getColor());
+        playerTwoPaddle.setFill(colorDao.getColor());
         
         Wall wallBuilder = new Wall();
         topWall = wallBuilder.topWall();
@@ -69,11 +73,10 @@ public final class GameScene extends AbstractScene {
 
         rightScoreGroup = new Group();
         rightScoreGroup.setLayoutX(WIDTH / 2 + 80);
-        rightScoreGroup.setLayoutY(60);
-
-        
+        rightScoreGroup.setLayoutY(60);      
 
         ball = new Ball();
+        ball.setFill(colorDao.getColor());
 
         Parent root = getRoot();
         Group rootGroup = (Group) root;
