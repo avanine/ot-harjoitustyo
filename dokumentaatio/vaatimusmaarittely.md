@@ -77,3 +77,5 @@ Jatkossa sovellukseen voisi mahdollisuuksien mukaan lisätä seuraavia asioita
 * laskuri sille, montako kertaa palloon osuu harjoitusnäkymässä
 
 * pistetilasto harjoituspelille
+
+* mahdollisuus valita vaikeustaso (muuttaa pallon kiihtyvyysnopeutta)
