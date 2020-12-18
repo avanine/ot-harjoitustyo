@@ -2,6 +2,10 @@
 
 Lataa tiedosto [Pong.jar](https://github.com/avanine/ot-harjoitustyo/releases/tag/viikko6)
 
+## Konfigurointi
+
+Sovellus olettaa, että sen käynnistyshakemistossa on tiedosto *config.properties*, joka määrittelee pysyväistallennukseen käytetyt tiedostot.
+
 ## Ohjelman käynnistäminen
 
 Ohjelma käynnistetään komennolla 
