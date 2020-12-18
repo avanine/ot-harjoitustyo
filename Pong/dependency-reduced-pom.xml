@@ -44,7 +44,8 @@
         </executions>
         <configuration>
           <excludes>
-            <exclude>pong/ui/*</exclude>
+            <exclude>pong/ui/**/*</exclude>
+            <exclude>pong/Main.class</exclude>
           </excludes>
         </configuration>
       </plugin>
