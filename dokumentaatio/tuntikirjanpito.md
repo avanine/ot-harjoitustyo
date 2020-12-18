@@ -17,4 +17,6 @@
 |  12.12. |   4   | Google, pisteiden tallennus                                                      |
 |  13.12. |   5   | Google, koodin korjailu                                                          |
 |  14.12. |   5   | PracticeScene, PlayerScoreDao-testit                                             |
-| **yht.**|**47h**|                                                                                  |
+|  15.12. |   4   | SettingsScene, testien lisääminen, POMin korjailu, taustakuvat                   |
+|  18.12. |   2   | SettingsScene valmiiksi, testit                                                  |
+| **yht.**|**53h**|                                                                                  |
