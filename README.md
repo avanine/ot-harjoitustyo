@@ -1,6 +1,6 @@
 # Pong
 
-Sovellus on kaksin pelattava oldschool -peli Pong, jossa tarkoituksena on saada pallo osumaan toisen pelaajan päätyyn, estäen samalla palloa osumasta omaan päätyyn mailaa käyttäen. Peli pitää myös kirjaa parhaista pelaajista, joita pääsee tarkastelemaan päävalikon "High Scores" -kohdasta. Pelaamista pääsee harjoittelemaan Practice Modessa, ja pallon sekä mailojen värejä pääsee muokkaamaan valikosta.
+Sovellus on kaksin pelattava oldschool -peli Pong, jossa tarkoituksena on saada pallo osumaan toisen pelaajan päätyyn, estäen samalla palloa osumasta omaan päätyyn mailaa käyttäen. Peli pitää myös kirjaa parhaista pelaajista, joita pääsee tarkastelemaan päävalikon "High Scores" -kohdasta. Pelaamista voi harjoitella Practice Modessa, ja teeman väriä pääsee muokkaamaan valikosta.
 
 Peli on harjoitustyö Helsingin yliopiston tietojenkäsittelytieteen kurssille Ohjelmistotekniikka.
 
