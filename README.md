@@ -14,6 +14,8 @@ Peli on harjoitustyö Helsingin yliopiston tietojenkäsittelytieteen kurssille O
 
 [Arkkitehtuurikuvaus](https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/testaus.md)
+
 ## Releaset
 
 [Viikko 5](https://github.com/avanine/ot-harjoitustyo/releases/tag/viikko5)
