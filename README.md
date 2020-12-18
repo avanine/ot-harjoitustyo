@@ -22,6 +22,8 @@ Peli on harjoitustyö Helsingin yliopiston tietojenkäsittelytieteen kurssille O
 
 [Viikko 6](https://github.com/avanine/ot-harjoitustyo/releases/tag/viikko6)
 
+[Loppupalautus](https://github.com/avanine/ot-harjoitustyo/releases/tag/loppupalautus)
+
 ## Komentorivitoiminnot
 
 ### Testaus
