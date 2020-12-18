@@ -16,7 +16,7 @@ Testauskattavuudessa ei ole huomioitu käyttöliittymän rakentavia luokkia. Nä
 
 <img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/testauskattavuus.png" width="820">
 
-Testaamatta jäivät *Paddle*- luokan mailan liikuttamisesta vastaavat metodit, jotka ottavat parametrikseen KeyEventin.
+Testaamatta jäivät *Paddle*-luokan mailan liikuttamisesta vastaavat metodit, jotka ottavat parametrikseen KeyEventin.
 
 ## Järjestelmätestaus
 
