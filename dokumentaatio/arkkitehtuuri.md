@@ -11,9 +11,11 @@ Pakkaus _Pong.ui_ sisältää JavaFX:llä toteutetun käyttöliittymän sekä er
 
 ## Käyttöliittymä
 
-Käyttöliittymä sisältää viisi erillistä näkymää
+Käyttöliittymä sisältää seitsemän erillistä näkymää
 - alkuvalikko
+- harjoituspeli
 - high score -näkymä
+- asetukset
 - pelaajien nimien syöttäminen
 - pelinäkymä
 - pelin loputtua näkymä joka kertoo voittajan, ja josta voi siirtyä joko uusintaotteluun tai takaisin päävalikkoon
