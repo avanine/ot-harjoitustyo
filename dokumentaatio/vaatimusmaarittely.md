@@ -6,36 +6,61 @@ Sovellus on kaksin pelattava peli Pong, jossa on tarkoitus saada kiekko osumaan 
 
 ## Toiminnallisuus
 
-### Aloitusnäkymä [TEHTY]
+### Aloitusnäkymä
 
-Aloitusnäkymässä on kolme eri vaihtoehtoa
+Aloitusnäkymässä on viisi eri vaihtoehtoa
 
-* uusi peli [TEHTY]
-  * pelaajien nimet kysytään pisteidenlaskua varten [TEHTY]
+* uusi peli
+  * perinteinen kaksinpeli
 
-* pistetilastot [TEHTY]
-  * 5 eniten pelejä voittanutta pelaajaa
+* harjoituspeli
+  * yksin pelattava loputtoman mittainen harjoituspeli
+  
+* pistetilastot
+  
+* asetukset
 
-* sulje sovellus [TEHTY]
+* sulje sovellus
 
-### Pelinäkymä [TEHTY]
+### Näkymä pelaajien nimien kysymiseen
 
-* tausta [TEHTY]
+* avautuu, kun aloitetaan uusi peli
 
-* pelikenttä [TEHTY]
+* kysyy molempien pelaajien nimet
+  * jos jompikumpi/molemmat jätetään tyhjäksi, peli generoi nimet
+  
+* aloita peli -nappi
 
-* pelaajien nimet
+### Pelinäkymä
 
-* pelaajien pisteet [TEHTY]
+* pelikenttä
+  * keskiviiva, mailat, pallo
 
-* lopeta peli -nappi
-  * kumpikaan pelaajista ei voita
+* pelaajien pisteet
 
-### Voittonäkymä [TEHTY]
+### Harjoittelunäkymä
 
-* peli kertoo kumpi voitti [TEHTY]
+* pelikenttä
+  * keskiviiva, pelaajan maila, tietokoneen maila (koko pituuden pituinen), pallo
+  
+* tekstiohjeistus pelin lopettamiseen (peli loppuu painamalla Enter)
 
-* pelaaja valitsee haluaako aloittaa uuden pelin vai palata aloitusnäkymään [TEHTY]
+### Voittonäkymä (kaksinpelin jälkeen)
+
+* peli kertoo kumpi voitti
+
+* pelaaja valitsee haluaako uusintaottelun vai palata aloitusnäkymään
+
+### High Scores -näkymä
+
+* listaa 5 parasta pelaajaa
+
+### Asetukset
+
+* mahdollisuus valita viidestä eri teemaväristä
+
+* nappi pistetilastojen tyhjentämiseen
+  * popup joka varmistaa, että tilasto halutaan tyhjentää
 
 ## Jatkokehitys
 
@@ -47,6 +72,10 @@ Jatkossa sovellukseen voisi mahdollisuuksien mukaan lisätä seuraavia asioita
 
 * pelin laittaminen pauselle
 
-* pelaaminen tietokonetta vastaan
+* kaksinpeli tietokonetta vastaan
+
+* laskuri sille, montako kertaa palloon osuu harjoitusnäkymässä
+
+* pistetilasto harjoituspelille
 
 * taustan, pelikentän, pallon ja mailojen ulkonäön muuttaminen
