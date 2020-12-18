@@ -77,5 +77,3 @@ Jatkossa sovellukseen voisi mahdollisuuksien mukaan lisätä seuraavia asioita
 * laskuri sille, montako kertaa palloon osuu harjoitusnäkymässä
 
 * pistetilasto harjoituspelille
-
-* taustan, pelikentän, pallon ja mailojen ulkonäön muuttaminen
