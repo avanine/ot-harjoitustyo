@@ -20,20 +20,20 @@ public class BallTest {
 
     @Test
     public void initialSpeedIsCorrect() {
-        assertTrue(ball.getMovementSpeed() == 2.0);
+        assertTrue(ball.getMovementSpeed() == 3.0);
     }
 
     @Test
     public void increaseSpeedWorks() {
         ball.increaseMovementSpeed();
-        assertTrue(ball.getMovementSpeed() > 2.0);
+        assertTrue(ball.getMovementSpeed() > 3.0);
     }
 
     @Test
     public void resetSpeedChangesSpeedToInitialSpeed() {
         ball.increaseMovementSpeed();
         ball.resetMovementSpeed();
-        assertTrue(ball.getMovementSpeed() == 2.0);
+        assertTrue(ball.getMovementSpeed() == 3.0);
     }
 
     @Test

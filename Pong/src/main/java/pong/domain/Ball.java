@@ -11,8 +11,8 @@ import static pong.ui.PongUi.LAYOUT;
  */
 public class Ball extends Rectangle {
 
-    private final double initialSpeed = 2.0;
-    private final double speedIncrease = 0.2;
+    private final double initialSpeed = 3.0;
+    private final double speedIncrease = 0.5;
     private final double maxSpeed = 10.0;
 
     private double movementSpeed;
