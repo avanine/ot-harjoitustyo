@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tiedosto [Pong.jar](https://github.com/avanine/ot-harjoitustyo/releases/tag/viikko6)
+Lataa tiedosto [Pong.jar](https://github.com/avanine/ot-harjoitustyo/releases/tag/loppupalautus)
 
 ## Konfigurointi
 
