@@ -86,9 +86,9 @@ public class WelcomeScene extends AbstractScene {
         Image image = new Image(getClass().getResource("/space.jpg").toExternalForm());
         BackgroundSize backgroundSize = new BackgroundSize(1.0, 1.0, true, true, false, false);
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
-        Background SPACE_BACKGROUND = new Background(backgroundImage);
+        Background spaceBackground = new Background(backgroundImage);
 
-        bp.setBackground(SPACE_BACKGROUND);
+        bp.setBackground(spaceBackground);
 
         Parent root = getRoot();
         Group rootGroup = (Group) root;

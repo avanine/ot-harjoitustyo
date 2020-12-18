@@ -106,7 +106,11 @@ public final class GameScene extends AbstractScene {
         setVisibleScore(leftScoreGroup, playerOne.getPoints());
         setVisibleScore(rightScoreGroup, playerTwo.getPoints());
     }
-    
+    /**
+     * Creates the center line for the game.
+     * 
+     * @param rootGroup root group
+     */
     public void createCenterLine(Group rootGroup) {
         Group centerLine = new Group();
         centerLine.setLayoutX(WIDTH / 2 - LAYOUT / 2);

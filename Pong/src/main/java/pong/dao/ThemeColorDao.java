@@ -35,9 +35,9 @@ public final class ThemeColorDao {
     public void load() throws IOException {
         try (Scanner scan = new Scanner(new File(file))) {
             while (scan.hasNextLine()) {
-            String[] split = scan.nextLine().split(";");
-            color = split[0];
-            markerLayout = Integer.parseInt(split[1]);
+                String[] split = scan.nextLine().split(";");
+                color = split[0];
+                markerLayout = Integer.parseInt(split[1]);
             }
         } catch (FileNotFoundException | NumberFormatException e) {
             FileWriter writer = new FileWriter(new File(file));
@@ -65,9 +65,13 @@ public final class ThemeColorDao {
         this.markerLayout = markerLayout;
         save();
     }
-    
+    /**
+     * Returns the color that was last chosen, or pink if none has been chosen.
+     * 
+     * @return color
+     */
     public Color getColor() {
-        switch(color) {
+        switch (color) {
             case "white":
                 return Color.WHITE;
             case "blue":

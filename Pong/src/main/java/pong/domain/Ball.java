@@ -4,7 +4,6 @@ import javafx.geometry.Bounds;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import static pong.ui.PongUi.LAYOUT;
-import static pong.ui.PongUi.colorDao;
 
 /**
  *
