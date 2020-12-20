@@ -7,7 +7,7 @@ Ohjelman rakenne koostuu kolmesta pakkauksesta:
 
 <img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/Pakkausrakenne.png" width="280">
 
-Pakkaus _Pong.ui_ sisältää JavaFX:llä toteutetun käyttöliittymän sekä eri näkymistä vastaavat Scene-luokat. Pakkauksesta _Pong.domain_ löytyy sovelluslogiikka, ja pakkauksesta _Pong.dao_ pisteiden tallentamiseen ja hakemiseen käytetty koodi.
+Pakkaus _pong.ui_ sisältää JavaFX:llä toteutetun käyttöliittymän sekä eri näkymistä vastaavat Scene-luokat. Pakkauksesta _pong.domain_ löytyy sovelluslogiikka, ja pakkauksesta _pong.dao_ pisteiden tallentamiseen ja hakemiseen käytetty koodi.
 
 ## Käyttöliittymä
 
@@ -46,7 +46,7 @@ _Player_ pääsee käsiksi luokkaan _PlayerScoreDao_, josta se voi tarvittaessa 
 
 ## Tietojen pysyväistallennus
 
-Pakkauksen _Pong.dao_ luokka _PlayerScoreDao_ tallettaa pelaajien nimet yhdistettynä voittojen määrään tekstitiedostoon _scores.txt_. Sovellus tallettaa tiedot seuraavassa muodossa
+Pakkauksen _pong.dao_ luokka _PlayerScoreDao_ tallettaa pelaajien nimet yhdistettynä voittojen määrään tekstitiedostoon _scores.txt_. Sovellus tallettaa tiedot seuraavassa muodossa
 
 <pre>
 Parry Hotter;5
@@ -55,7 +55,7 @@ play3r;7
 
 Eli pelaajan nimi ja voittojen määrä puolipisteellä erotettuna.
 
-Tulevaisuudessa myös luokilla Paddle ja Ball saattaa olla pääsy pakkaukseen _Pong.dao_, jos sovellusta laajentaa muistamaan myös yksittäisen pelin tilastoja. Esimerkki tällaisesta voisi olla pelaaja, jolla on suurin määrä peräkkäisiä osumia palloon.
+Tulevaisuudessa myös luokilla Paddle ja Ball saattaa olla pääsy pakkaukseen _pong.dao_, jos sovellusta laajentaa muistamaan myös yksittäisen pelin tilastoja. Esimerkki tällaisesta voisi olla pelaaja, jolla on suurin määrä peräkkäisiä osumia palloon.
 
 ## Päätoiminnallisuudet
 
@@ -63,10 +63,16 @@ Kuvataan sovelluksen päätoiminnallisuuksia sekvenssikaaviona.
 
 ### voittotilaston päivitys
 
-Kun toinen pelaajista saa 10 pistettä ja peli päättyy, vaihtuu näkymä _EndSceneen_, joka hoitaa tilaston päivityksen. Seuraava sekvenssikaavio kuvaa tilannetta, jossa voitoista kirjaa pitävä tekstitiedosto _scores.txt_ on vielä tyhjä.
+Kun toinen pelaajista saa 10 pistettä ja peli päättyy, vaihtuu näkymä _EndSceneen_, joka hoitaa tilaston päivityksen. Seuraava sekvenssikaavio kuvaa tilannetta, jossa daoon tallennetaan ensimmäinen voitto. Tämän jälkeen avataan HighScoreScene, joka pyytää voittajia daolta.
 
-<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/sd_score.png" width="500">
+<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/sd1.png" width="300">
 
-Ensin haetaan pelaajien pisteet, jotta selvitetään kumpi voitti. Player-luokan metodi getPoints() palauttaa 10 voittaneen pelaajan kohdalla. Tämän jälkeen luodaan uusi PlayerScoreDao-olio voittojen määrän päivitystä varten. Kutsutaan sen metodia addPoint(), joka vuorostaan tarkistaa, onko tekstitiedosto _scores.txt_ tyhjä. Tässä tapauksessa se on, eli metodi length() palauttaa 0. Lopuksi kirjoitetaan tekstitiedostoon uusi rivi joka sisältää voittajan nimen sekä voittojen määrän (1)* puolipisteellä erotettuna.
+Ensin kutsutaan Player-luokan metodia win(), joka palauttaa true sen merkiksi että kyseinen pelaaja voitti. Tämän jälkeen kutsutaan PlayerScoreDao-luokan metodia addNewWin, jolle annetaan parametriksi voittajan nimi. PlayerScoredao tallentaa nimen ja voittojen kokonaismäärän tekstitiedostoon _scores.txt_. Seuraavaksi avataan HighScoreScene, joka kutsuu daon metodia getTopScores() parametrillä 5, eli viisi viimeisintä voittajaa. Tässä tapauksessa voittajia on kuitenkin vasta yksi, joten metodi palauttaa tallennetun pelaajan nimen sekä numeron 1 valmiiksi muotoiltuna.
 
-_*Koska tekstitiedosto on tyhjä, tarkoittaa se ettei yhdelläkään pelaajalla ole vielä voittoja. Tämän takia voittojen määrä on automaattisesti 1._
+### teemavärin vaihtaminen
+
+Alla oleva sekvenssikaavio kuvaa tilannetta, jossa pelin käyttöliittymän väri vaihdetaan vihreäksi.
+
+<img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/sd2.png" width="300">
+
+Kutsutaan ThemeColorDaon metodia changeColor, joka ottaa parametrikseen värin johon vaihdetaan. Dao tallentaa värin, sekä SettingsScenen X-merkin uuden sijainnin tekstitiedostoon _color.txt_. Tämän jälkeen käyttöliittymän tekstit, maila sekä pallo kutsuvat komennon setFill() parametrina ThemeColorDaon metodia getColor(), joka palauttaa sillä hetkellä valittuna olevan värin, eli tässä tapauksessa vihreän.
