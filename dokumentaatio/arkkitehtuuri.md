@@ -59,7 +59,7 @@ Tulevaisuudessa myös luokilla Paddle ja Ball saattaa olla pääsy pakkaukseen _
 
 ## Päätoiminnallisuudet
 
-Kuvataan sovelluksen päätoiminnallisuuksia sekvenssikaaviona.
+Kuvataan sovelluksen päätoiminnallisuuksia sekvenssikaavioina.
 
 ### voittotilaston päivitys
 
@@ -75,4 +75,4 @@ Alla oleva sekvenssikaavio kuvaa tilannetta, jossa pelin käyttöliittymän vär
 
 <img src="https://github.com/avanine/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/sd2.png" width="300">
 
-Kutsutaan ThemeColorDaon metodia changeColor, joka ottaa parametrikseen värin johon vaihdetaan. Dao tallentaa värin, sekä SettingsScenen X-merkin uuden sijainnin tekstitiedostoon _color.txt_. Tämän jälkeen käyttöliittymän tekstit, maila sekä pallo kutsuvat komennon setFill() parametrina ThemeColorDaon metodia getColor(), joka palauttaa sillä hetkellä valittuna olevan värin, eli tässä tapauksessa vihreän.
+Kutsutaan ThemeColorDaon metodia changeColor, joka ottaa parametrikseen värin johon vaihdetaan. Dao tallentaa värin sekä SettingsScenen X-merkin uuden sijainnin tekstitiedostoon _color.txt_. Tämän jälkeen käyttöliittymän tekstit, maila sekä pallo kutsuvat komennon setFill() parametrina ThemeColorDaon metodia getColor(), joka palauttaa sillä hetkellä valittuna olevan värin, eli tässä tapauksessa vihreän.
